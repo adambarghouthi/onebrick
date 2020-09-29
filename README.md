@@ -1,4 +1,4 @@
-# Adams Sample Project (Fund)
+# Palestinian Social Fund (PSF)
 
 A sample fund built on top of Stripe, where users can donate monthly or yearly.
 
