@@ -1,42 +1,28 @@
-# Ant Design example
+# Adams Sample Project (Fund)
 
-This example shows how to use Next.js along with [Ant Design of React](http://ant.design). This is intended to show the integration of this UI toolkit with the Framework.
+A sample fund built on top of Stripe, where users can donate monthly or yearly.
 
-## Deploy your own
+## Project Setup
 
-Deploy the example using [Vercel](https://vercel.com):
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/next.js/tree/canary/examples/with-ant-design)
-
-## How to use
-
-### Using `create-next-app`
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
+```cd``` into the project directory and run:
 
 ```bash
-npx create-next-app --example with-ant-design with-ant-design-app
-# or
-yarn create next-app --example with-ant-design with-ant-design-app
+npm init # press enter for all options
+npm install # to install dependencies
 ```
 
-### Download manually
+## Database Setup
+Open the ```.env.local``` file and follow these steps:
 
-Download the example:
+1) Add a value for ```JWT_SECRET``` (it can be anything for the purpose of testing).
+2) Add a value for ```DB_URI```, which has to be a mongo db either on your local machine or hosted somewhere (e.x. mongodb.com). If on your local machine, make sure that you're running mongo in another console tab. An example URI can be: ```mongodb://localhost:27017/fund```.
 
+## Running the project
+Whilst in the project directory, run this command:
 ```bash
-curl https://codeload.github.com/vercel/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/with-ant-design
-cd with-ant-design
-```
-
-Install it and run:
-
-```bash
-npm install
 npm run dev
-# or
-yarn
-yarn dev
 ```
+The website will run on ```http://localhost:3000```.
 
-Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
