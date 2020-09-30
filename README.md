@@ -1,6 +1,6 @@
-# Palestinian Social Fund (PSF)
+# Fund
 
-A sample fund built on top of Stripe, where users can donate monthly or yearly.
+A fund built on top of Stripe with the Next.js framework, where supporters can donate monthly or yearly.
 
 ## Project Setup
 
