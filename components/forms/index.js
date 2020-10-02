@@ -2,7 +2,7 @@ import PaymentMethodForm from './PaymentMethodForm'
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 import ResetPasswordForm from './ResetPasswordForm'
-import ChangePasswordForm from './ChangePasswordForm'
+import ChangePwdForm from './ChangePwdForm'
 import ProfileForm from './ProfileForm'
 
 export {
@@ -10,6 +10,6 @@ export {
   LoginForm,
   SignupForm,
   ResetPasswordForm,
-  ChangePasswordForm,
+  ChangePwdForm,
   ProfileForm
 }

@@ -50,7 +50,10 @@ const DashboardLayout = (props) => {
               </Menu>
             </Col>
             <Col xs={24} sm={18}>
-              <Content className="mr-3">
+              <Content className={direction === 'ltr'
+                ? 'ml-3'
+                : 'mr-3'
+              }>
                 { props.children }
               </Content>
             </Col>

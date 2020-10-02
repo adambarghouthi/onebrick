@@ -1,21 +1,24 @@
 import { actionTypes } from 'actions/signupFormActions'
 
-const initialState = {}
+const initialState = {
+  email: '',
+  loading: false,
+  success: null,
+  error: null
+}
 
 function reducer(state = initialState, action) {
   switch (action.type) {
 
-    case actionTypes.SIGNUP_FORM_EDIT:
+    case actionTypes.PROFILE_FORM_EDIT:
       return {
         ...state,
         ...{
           email: action.email,
-          password: action.password,
-          current_password: action.current_password
         }
       }
 
-    case actionTypes.SIGNUP_FORM_SUBMIT:
+    case actionTypes.PROFILE_FORM_SUBMIT:
       return {
         ...state,
         ...{
@@ -24,7 +27,7 @@ function reducer(state = initialState, action) {
         }
       }
 
-    case actionTypes.SIGNUP_FORM_SUCCESS:
+    case actionTypes.PROFILE_FORM_SUCCESS:
       return {
         ...state,
         ...{
@@ -33,7 +36,7 @@ function reducer(state = initialState, action) {
         }
       }
 
-    case actionTypes.SIGNUP_FORM_ERROR:
+    case actionTypes.PROFILE_FORM_ERROR:
       return {
         ...state,
         ...{
