@@ -18,16 +18,16 @@ const wrapper = (WrappedPage) => {
     }
 
     useEffect(() => {
-      // if (token) {
-      //   if (!user.auth) {
-      //     dispatch(handleFetch(token))
-      //   }  else if (!user.stripe.customerId) {
-      //     router.push('/[lang]/signup', `/${locale}/signup`)
-      //   }
-      // } else {
-      //   router.push('/[lang]/login', `/${locale}/login`)
-      // }
-    }, [user, token])
+       if (token) {
+         if (!user.auth) {
+           dispatch(handleFetch(token))
+         } else if (!user.stripe.customerId) {
+           router.push('/[lang]/signup', `/${locale}/signup`)
+         }
+       } else {
+         router.push('/[lang]/login', `/${locale}/login`)
+       }
+    }, [user.auth, token])
 
     return <WrappedPage />
   }

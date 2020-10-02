@@ -4,6 +4,7 @@ import { ProfileOutlined, CreditCardOutlined, SettingOutlined } from '@ant-desig
 import Link from 'next/link'
 import Header from '../Header'
 import { LocaleContext } from 'context/LocaleContext'
+import useTranslation from 'lib/translations/useTranslation'
 import { languageDirection } from 'lib/translations/config'
 import LocaleSwitch from '../LocaleSwitch'
 
@@ -13,6 +14,7 @@ const DashboardLayout = (props) => {
   const { Footer, Content, Sider } = Layout;
   const { locale } = React.useContext(LocaleContext)
   const direction = languageDirection[locale] || 'ltr'
+  const { t } = useTranslation()
 
   return (
     <ConfigProvider direction={direction}>
@@ -28,27 +30,27 @@ const DashboardLayout = (props) => {
                   key="profile"
                   icon={<ProfileOutlined />}>
                   <Link href="/[lang]/dashboard/profile" as={`/${locale}/dashboard/profile`}>
-                    <a>Profile</a>
+                    <a>{ t('profile_pg_title') }</a>
                   </Link>
                 </Menu.Item>
                 <Menu.Item
                   key="billing"
                   icon={<CreditCardOutlined />}>
                   <Link href="/[lang]/dashboard/billing" as={`/${locale}/dashboard/billing`}>
-                    <a>Billing</a>
+                    <a>{ t('billing_pg_title') }</a>
                   </Link>
                 </Menu.Item>
                 <Menu.Item
                   key="membership"
                   icon={<SettingOutlined />}>
                   <Link href="/[lang]/dashboard/membership" as={`/${locale}/dashboard/membership`}>
-                    <a>Membership</a>
+                    <a>{ t('membership_pg_title') }</a>
                   </Link>
                 </Menu.Item>
               </Menu>
             </Col>
             <Col xs={24} sm={18}>
-              <Content>
+              <Content className="mr-3">
                 { props.children }
               </Content>
             </Col>

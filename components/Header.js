@@ -20,13 +20,14 @@ const Header = () => {
   const { t } = useTranslation()
 
   const dropdownOverlay = (
-    <Menu>
+    <Menu
+      onClick={(item) => {
+        if (item.key === 'logout') {
+          dispatch(handleLogout())
+        }
+      }}>
       <Menu.Item>
-        <Button
-          type="text"
-          onClick={() => dispatch(handleLogout())}>
-          <LogoutOutlined /> { t('logout') }
-        </Button>
+        <LogoutOutlined /> { t('logout') }
       </Menu.Item>
     </Menu>
   )
