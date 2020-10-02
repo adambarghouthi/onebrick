@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import { message, Card, Form, Input, Button, Typography } from 'antd'
 import useTranslation from 'lib/translations/useTranslation'
+import validateEmail from 'lib/validateEmail'
 
 const { Title } = Typography
 
 const layout = {
   labelCol: { span: 6 },
-  wrapperCol: { span: 18 },
+  wrapperCol: { span: 18 }
 }
 
 const tailLayout = {
@@ -14,11 +15,6 @@ const tailLayout = {
     sm: { offset: 0, span: 24 },
     md: { offset: 6, span: 18 }
   }
-}
-
-const validateEmail = (email) => {
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  return re.test(String(email).toLowerCase())
 }
 
 const SignupForm = (props) => {
@@ -41,7 +37,7 @@ const SignupForm = (props) => {
       <Card.Grid hoverable={false} style={{ width: '100%' }}>
         <Form
           {...layout}
-          name="basic"
+          name="signupForm"
           size="large"
           fields={fields}
           onValuesChange={onChange}
@@ -51,9 +47,9 @@ const SignupForm = (props) => {
           }}
         >
           <Form.Item
-            hasFeedback
             label={t('email')}
             name="email"
+            required={true}
             rules={[
               ({ getFieldValue }) => ({
                 validator(rule, value) {
@@ -71,9 +67,9 @@ const SignupForm = (props) => {
           </Form.Item>
 
           <Form.Item
-            hasFeedback
             label={t('password')}
             name="password"
+            required={true}
             rules={[
               ({ getFieldValue }) => ({
                 validator(rule, value) {
@@ -91,9 +87,9 @@ const SignupForm = (props) => {
           </Form.Item>
 
           <Form.Item
-            hasFeedback
             label={`${t('confirm')} ${t('password')}`}
             name="confirmPassword"
+            required={true}
             dependencies={['password']}
             rules={[
               ({ getFieldValue }) => ({

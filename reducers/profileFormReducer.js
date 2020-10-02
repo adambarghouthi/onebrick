@@ -14,7 +14,7 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         ...{
-          email: action.email,
+          email: action.email
         }
       }
 

@@ -36,7 +36,7 @@ const LoginForm = (props) => {
       <Card.Grid hoverable={false} style={{ width: '100%' }}>
         <Form
           {...layout}
-          name="basic"
+          name="loginForm"
           size="large"
           fields={fields}
           onValuesChange={onChange}
@@ -78,6 +78,11 @@ const LoginForm = (props) => {
       </Card.Grid>
     </Card>
   )
+}
+
+LoginForm.defaultProps = {
+  data: {},
+  onChange: () => {}
 }
 
 export default LoginForm

@@ -9,7 +9,7 @@ import { languageDirection } from 'lib/translations/config'
 import useTranslation from 'lib/translations/useTranslation'
 import { LocaleContext } from 'context/LocaleContext'
 
-import {  handleLogout } from 'actions/userActions'
+import { handleLogout } from 'actions/userActions'
 
 const Header = () => {
   const { Header } = Layout
@@ -26,7 +26,7 @@ const Header = () => {
           dispatch(handleLogout())
         }
       }}>
-      <Menu.Item>
+      <Menu.Item key="logout">
         <LogoutOutlined /> { t('logout') }
       </Menu.Item>
     </Menu>
