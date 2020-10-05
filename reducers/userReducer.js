@@ -29,6 +29,15 @@ function reducer(state = initialState, action) {
         }
       }
 
+    case actionTypes.USER_EDIT:
+      return {
+        ...state,
+        ...{
+          email: action.email,
+          stripe: action.stripe
+        }
+      }
+
     case actionTypes.USER_LOGOUT:
       return { ...initialState }
 
