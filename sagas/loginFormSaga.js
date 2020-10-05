@@ -20,7 +20,7 @@ function* loginFormSubmit(action) {
     const session = data.data
 
     yield localStorage.setItem('token', session.token)
-    yield put(handleLogin({ ...session.user, auth: true }))
+    yield put(handleLogin({ ...session.user }))
     yield put(handleSuccess('login_success'))
   } catch (error) {
     yield put(handleError(error.message))

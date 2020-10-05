@@ -33,7 +33,7 @@ const wrapper = (WrappedPage) => {
           }
         }
       }
-    }, [user.auth, token])
+    }, [user.auth])
 
     return <WrappedPage />
   }

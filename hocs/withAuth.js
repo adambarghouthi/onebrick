@@ -27,7 +27,7 @@ const wrapper = (WrappedPage) => {
        } else {
          router.push('/[lang]/login', `/${locale}/login`)
        }
-    }, [user.auth, token])
+    }, [user.auth])
 
     return <WrappedPage />
   }
