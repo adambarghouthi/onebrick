@@ -1,4 +1,4 @@
-import { actionTypes } from 'actions/signupFormActions'
+import { actionTypes } from 'actions/profileFormActions'
 
 const initialState = {
   email: '',
@@ -23,7 +23,8 @@ function reducer(state = initialState, action) {
         ...state,
         ...{
           loading: true,
-          error: initialState.error
+          error: initialState.error,
+          success: initialState.success
         }
       }
 
