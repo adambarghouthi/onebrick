@@ -1,7 +1,8 @@
 export const actionTypes = {
   USER_LOGIN: 'USER_LOGIN',
   USER_LOGOUT: 'USER_LOGOUT',
-  USER_FETCH: 'USER_FETCH'
+  USER_FETCH: 'USER_FETCH',
+  USER_EDIT: 'USER_EDIT'
 }
 
 export const handleFetch = token => ({
@@ -11,6 +12,11 @@ export const handleFetch = token => ({
 
 export const handleLogin = user => ({
   type: actionTypes.USER_LOGIN,
+  ...user
+})
+
+export const handleEdit = user => ({
+  type: actionTypes.USER_EDIT,
   ...user
 })
 
