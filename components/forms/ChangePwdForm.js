@@ -14,8 +14,14 @@ const tailLayout = {
 }
 
 const ChangePwdForm = (props) => {
-  const { reset } = props
+  const { onChange, onSubmit, data } = props
+  const { loading, ...rest } = data
   const { t } = useTranslation()
+
+  const fields = Object.keys(rest).map(key => ({
+    name: [key],
+    value: rest[key]
+  }))
 
   return (
     <Card>
@@ -27,15 +33,20 @@ const ChangePwdForm = (props) => {
       <Card.Grid hoverable={false} style={{ width: '100%' }}>
         <Form
           {...layout}
-          name="ChangePwdForm"
-          initialValues={{ remember: true }}
+          name="changePwdForm"
           size="large"
+          fields={fields}
+          onValuesChange={onChange}
+          onFinish={(form) => {
+            delete form.confirmNewPassword
+            onSubmit(form)
+          }}
         >
           {
-            reset ? null :
+            data.reset ? null :
               <Form.Item
                 label={t('current_password')}
-                name="current_password"
+                name="currentPassword"
                 rules={[{
                   required: true,
                   message: `${t('please_input')} ${t('current_password')}.`
@@ -46,28 +57,51 @@ const ChangePwdForm = (props) => {
           }
           <Form.Item
             label={t('new_password')}
-            name="new_password"
-            rules={[{
-              required: true,
-              message: `${t('please_input')} ${t('password')}.`
-            }]}
+            name="newPassword"
+            required={true}
+            rules={[
+              ({ getFieldValue }) => ({
+                validator(rule, value) {
+                  if (value.length < 8) {
+                    return Promise.reject(t('password_length_error'))
+                  } else if (!value.length) {
+                    return Promise.reject(`${t('please_input')} ${t('password')}.`)
+                  }
+                  return Promise.resolve()
+                }
+              })
+            ]}
           >
             <Input.Password />
           </Form.Item>
 
           <Form.Item
             label={`${t('confirm')} ${t('password')}`}
-            name="confirm_new_password"
-            rules={[{
-              required: true,
-              message: `${t('please_confirm')} ${t('password')}.`
-            }]}
+            name="confirmNewPassword"
+            required={true}
+            dependencies={['newPassword']}
+            rules={[
+              ({ getFieldValue }) => ({
+                validator(rule, value) {
+                  if (!value) {
+                    return Promise.reject(`${t('please_confirm')} ${t('password')}.`)
+                  } else if (getFieldValue('newPassword') !== value) {
+                    return Promise.reject(t('password_match_error'))
+                  }
+                  return Promise.resolve()
+                }
+              })
+            ]}
           >
             <Input.Password />
           </Form.Item>
 
           <Form.Item {...tailLayout}>
-            <Button type="primary" htmlType="submit">
+            <Button
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+            >
               { t('change_password') }
             </Button>
           </Form.Item>
