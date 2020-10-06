@@ -1,7 +1,7 @@
-import { actionTypes } from 'actions/pmListActions'
+import { actionTypes } from 'actions/subActions'
 
 const initialState = {
-  pms: [],
+  sub: null,
   loading: false,
   success: null,
   error: null
@@ -10,44 +10,40 @@ const initialState = {
 function reducer(state = initialState, action) {
   switch (action.type) {
 
-    case actionTypes.PMLIST_POPULATE:
+    case actionTypes.SUB_POPULATE:
       return {
         ...state,
         ...{
-          pms: action.mems
+          sub: action.sub
         }
       }
 
-    case actionTypes.PMLIST_FETCH:
+    case actionTypes.SUB_FETCH:
+    case actionTypes.SUB_SUBMIT:
       return {
         ...state,
         ...{
-          loading: true
+          loading: true,
+          succes: initialState.success,
+          error: initialState.error
         }
       }
 
-    case actionTypes.PMLIST_SUBMIT:
+    case actionTypes.SUB_SUCCESS:
       return {
         ...state,
         ...{
-          loading: true
+          loading: false
         }
       }
 
-    case actionTypes.PMLIST_SUCCESS:
+    case actionTypes.SUB_ERROR:
       return {
         ...state,
         ...{
           loading: false,
-          success: action.success
+          error: action.error
         }
-      }
-
-    case actionTypes.PMLIST_ERROR:
-      return {
-        ...state,
-        loading: false,
-        error: action.error
       }
 
     default:
