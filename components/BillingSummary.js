@@ -1,12 +1,12 @@
 import React from 'react';
-import { Typography, Card, Descriptions, Tag } from 'antd';
+import { Typography, Card, Descriptions, Tag, Skeleton } from 'antd';
 import { CheckCircleTwoTone, CloseCircleTwoTone } from '@ant-design/icons'
 import useTranslation from 'lib/translations/useTranslation'
 
 const { Title } = Typography
 
 const BillingSummary = (props) => {
-  const { billingMode, price } = props
+  const { billingMode, price, loading } = props
   const { t } = useTranslation()
 
   return (
@@ -26,10 +26,20 @@ const BillingSummary = (props) => {
             label={t('billing_mode')}
             style={{ borderLeft: '0' }}
           >
-            { t(billingMode) }
+            <Skeleton
+              loading={loading}
+              paragraph={{ rows: 0 }}
+              active>
+              { t(billingMode) }
+            </Skeleton>
           </Descriptions.Item>
           <Descriptions.Item label={t('price')}>
-            ${ price }
+            <Skeleton
+              loading={loading}
+              paragraph={{ rows: 0 }}
+              active>
+              ${ price }
+            </Skeleton>
           </Descriptions.Item>
         </Descriptions>
       </Card.Grid>

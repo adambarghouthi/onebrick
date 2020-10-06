@@ -5,9 +5,8 @@ export const actionTypes = {
   USER_EDIT: 'USER_EDIT'
 }
 
-export const handleFetch = token => ({
-  type: actionTypes.USER_FETCH,
-  token: token
+export const handleFetch = () => ({
+  type: actionTypes.USER_FETCH
 })
 
 export const handleLogin = user => ({

@@ -30,7 +30,7 @@ handler.put(async (req, res) => {
   const saltRounds = 10
   const hash = await bcrypt.hash(newPassword, saltRounds)
 
-  user.hash = hash
+  user.password = hash
 
   const [savedUser, savedError] = await handleAsync(user.save())
   if (savedError) throw savedError

@@ -20,7 +20,7 @@ handler.post(async (req, res) => {
 
   const [valid, validError] = await handleAsync(bcrypt.compare(password, fetchedUser.password))
   if (validError) throw validError
-  if (!valid) throw Error('login_error')
+  if (!valid) throw Error('login_user_error')
 
   res.json(handleSuccess(session(fetchedUser)))
 })

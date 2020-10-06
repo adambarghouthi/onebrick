@@ -27,7 +27,7 @@ function* profileFormSubmit(action) {
 
     yield localStorage.setItem('token', session.token)
     yield put(handleEdit(session.user))
-    yield put(handleSuccess('profile_form_success'))
+    yield put(handleSuccess('edit_profile_success'))
   } catch (error) {
     yield put(handleError(error.message))
   }

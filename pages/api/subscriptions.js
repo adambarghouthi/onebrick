@@ -15,12 +15,15 @@ handler.use(middleware)
 
 handler.get(async (req, res) => {
   const { query } = req
-  const { token } = query
+  const {
+    token,
+    subscriptionId
+  } = query
 
   const [user, userError] = await handleAsync(userWithToken(token))
   if (userError) throw userError
 
-  const [sub, subError] = await handleAsync(stripe.subscriptions.retrieve(user.stripe.subscriptionId))
+  const [sub, subError] = await handleAsync(stripe.subscriptions.retrieve(subscriptionId))
   if (subError) throw subError
 
   res.json(handleSuccess(sub))

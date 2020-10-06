@@ -12,7 +12,7 @@ export const handleChange = (changedValues, allValues) => ({
 
 export const handleSubmit = form => ({
   type: actionTypes.LOGIN_FORM_SUBMIT,
-  form: { ...form }
+  form: form
 })
 
 export const handleSuccess = success => ({

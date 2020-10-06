@@ -110,7 +110,7 @@ function* pmFormSubscribe(action) {
     cus = cusData.data
     sub = subData.data
 
-    yield put(handleSuccess('membership_success'))
+    yield put(handleSuccess('create_membership_success'))
   } catch (error) {
     yield put(handleError(error.message))
   }

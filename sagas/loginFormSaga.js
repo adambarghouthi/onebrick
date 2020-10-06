@@ -21,7 +21,7 @@ function* loginFormSubmit(action) {
 
     yield localStorage.setItem('token', session.token)
     yield put(handleLogin({ ...session.user }))
-    yield put(handleSuccess('login_success'))
+    yield put(handleSuccess('login_user_success'))
   } catch (error) {
     yield put(handleError(error.message))
   }
