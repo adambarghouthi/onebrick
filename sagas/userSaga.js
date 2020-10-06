@@ -7,10 +7,13 @@ import {
 } from 'actions/userActions'
 
 function* userFetch(action) {
-  const { token } = action
   const url = '/api/users'
 
+  let token
+
   try {
+    token = localStorage.getItem('token')
+
     const res = yield call(() => axios.get(url, {
       params: { token: token }
     }))
