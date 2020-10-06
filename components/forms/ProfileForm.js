@@ -1,20 +1,31 @@
 import React from 'react'
 import { Card, Form, Input, Button, Typography } from 'antd'
 import useTranslation from 'lib/translations/useTranslation'
+import validateEmail from 'lib/validateEmail'
 
 const { Title } = Typography
 
 const layout = {
   labelCol: { span: 6 },
-  wrapperCol: { span: 18 },
+  wrapperCol: { span: 18 }
 }
 
 const tailLayout = {
-  wrapperCol: { offset: 6, span: 18 },
+  wrapperCol: {
+    sm: { offset: 0, span: 24 },
+    md: { offset: 6, span: 18 }
+  }
 }
 
 const ProfileForm = (props) => {
+  const { onChange, onSubmit, data } = props
+  const { loading, ...rest } = data
   const { t } = useTranslation()
+
+  const fields = Object.keys(rest).map(key => ({
+    name: [key],
+    value: rest[key]
+  }))
 
   return (
     <Card>
@@ -26,23 +37,40 @@ const ProfileForm = (props) => {
       <Card.Grid hoverable={false} style={{ width: '100%' }}>
         <Form
           {...layout}
-          name="basic"
-          initialValues={{ remember: true }}
+          name="profileForm"
           size="large"
+          fields={fields}
+          onValuesChange={onChange}
+          onFinish={(form) => {
+            onSubmit(form)
+          }}
         >
           <Form.Item
             label={t('email')}
             name="email"
-            rules={[{
-              required: true,
-              message: `${t('please_input')} ${t('email')}.`
-            }]}
+            required={true}
+            rules={[
+              ({ getFieldValue }) => ({
+                validator(rule, value) {
+                  if (!validateEmail(value)) {
+                    return Promise.reject(t('email_invalid_error'))
+                  } else if (!value.length) {
+                    return Promise.reject(`${t('please_input')} ${t('email')}.`)
+                  }
+                  return Promise.resolve()
+                }
+              })
+            ]}
           >
-            <Input.Password />
+            <Input />
           </Form.Item>
 
           <Form.Item {...tailLayout}>
-            <Button type="primary" htmlType="submit">
+            <Button
+              type="primary"
+              htmlType="submit"
+              loading={loading}
+            >
               { t('save') }
             </Button>
           </Form.Item>
@@ -50,6 +78,11 @@ const ProfileForm = (props) => {
       </Card.Grid>
     </Card>
   )
+}
+
+ProfileForm.defaultProps = {
+  data: {},
+  onChange: () => {}
 }
 
 export default ProfileForm
