@@ -16,9 +16,9 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         ...{
-          currentPassword: action.current_password,
-          newPassword: action.new_password,
-          confirmNewPassword: action.confirm_new_password
+          currentPassword: action.currentPassword,
+          newPassword: action.newPassword,
+          confirmNewPassword: action.confirmNewPassword
         }
       }
 
@@ -27,7 +27,8 @@ function reducer(state = initialState, action) {
         ...state,
         ...{
           loading: true,
-          error: initialState.error
+          error: initialState.error,
+          success: initialState.success
         }
       }
 
@@ -35,7 +36,7 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         ...{
-          loading: false,
+          ...initialState,
           success: action.success
         }
       }
