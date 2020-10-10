@@ -91,8 +91,8 @@ const MembershipSettings = (props) => {
                   >
                     {
                       subIsActive
-                        ? 'Cancel'
-                        : 'Activate'
+                        ? t('cancel')
+                        : t('activate')
                     }
                   </Button>
             }
