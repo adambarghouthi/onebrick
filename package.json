@@ -11,7 +11,7 @@
     "@next/bundle-analyzer": "^9.1.4",
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.9.0",
-    "antd": "4.3.0",
+    "antd": "^4.7.0",
     "axios": "^0.20.0",
     "babel-plugin-import": "1.13.0",
     "bcrypt": "^5.0.0",
