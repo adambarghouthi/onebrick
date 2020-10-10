@@ -128,7 +128,8 @@ const Signup = () => {
                   ? 'yearly'
                   : 'monthly'
               }
-              price={memList.mems[memList.selected].unit_amount / 100} />
+              price={memList.mems[memList.selected].unit_amount / 100}
+            />
             <br />
             <PaymentMethodForm
               btnTitle={t('support_now')}
@@ -137,7 +138,8 @@ const Signup = () => {
                 ...form,
                 price: memList.mems[memList.selected].id
               }))}
-              data={pmForm} />
+              data={pmForm}
+            />
           </div>
         )
       default:

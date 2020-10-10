@@ -26,6 +26,7 @@ function reducer(state = initialState, action) {
         ...state,
         ...{
           loading: true,
+          success: initialState.success,
           error: initialState.error
         }
       }

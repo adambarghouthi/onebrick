@@ -14,23 +14,20 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         ...{
-          pms: action.mems
+          pms: action.pms
         }
       }
 
     case actionTypes.PMLIST_FETCH:
-      return {
-        ...state,
-        ...{
-          loading: true
-        }
-      }
-
     case actionTypes.PMLIST_SUBMIT:
+    case actionTypes.PMLIST_MAKE_DEFAULT:
+    case actionTypes.PMLIST_REMOVE:
       return {
         ...state,
         ...{
-          loading: true
+          loading: true,
+          success: initialState.success,
+          error: initialState.error
         }
       }
 

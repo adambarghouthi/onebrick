@@ -29,7 +29,7 @@ const tailLayout = {
 }
 
 const Body = (props) => {
-  const { onSubmit, onChange, btnTitle, data } = props
+  const { onSubmit, onChange, btnTitle, bordered, data } = props
   const { loading, ...rest } = data
   const stripe = useStripe()
   const elements = useElements()
@@ -135,6 +135,10 @@ const PaymentMethodForm = (props) => {
       <Body {...props} />
     </Elements>
   )
+}
+
+PaymentMethodForm.defaultProps = {
+  bordered: false
 }
 
 export default PaymentMethodForm
