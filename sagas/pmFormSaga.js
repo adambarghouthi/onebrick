@@ -6,6 +6,8 @@ import {
   handleError
 } from 'actions/pmFormActions'
 
+import { handleFetch as pmListFetch } from 'actions/pmListActions'
+
 async function createCardToken(params) {
   const {
     cardElement,
@@ -56,7 +58,7 @@ function* pmFormSubscribe(action) {
     subscriptions: '/api/subscriptions'
   }
 
-  let token, cus, sub, toke
+  let token, cus, sub
 
   try {
     // 1. create cardToken from CardElement using stripe.js
@@ -123,6 +125,41 @@ function* pmFormSubscribe(action) {
       subscriptionId: sub.id
     }
   }))
+}
+
+function* pmFormSubmit(action) {
+  const { form } = action
+  const { stripe, cusId } = form
+
+  let token
+
+  try {
+    // 1. create cardToken from CardElement using stripe.js
+    // 2. create paymentMethod for user on stripe with cardToken
+
+    // get jwt
+    token = localStorage.getItem('token')
+    
+    // create cardToken
+    const cardToken = yield call(() => createCardToken({
+      cardElement: form.cardElement,
+      cardholder: form.cardholder,
+      country: form.country,
+      stripe: stripe
+    }))
+
+    // create payment method
+    const pm = yield call(() => createPaymentMethod({
+      token: token,
+      customerId: cusId,
+      cardToken: cardToken
+    }))
+
+    yield put(handleSuccess('create_pm_success'))
+    yield put(pmListFetch(cusId))
+  } catch (error) {
+    yield put(handleError(error.message))
+  }
 }
 
 export function* watchPmFormSubscribe() {
