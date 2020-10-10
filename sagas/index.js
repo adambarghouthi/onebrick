@@ -4,7 +4,10 @@ import loginFormSaga from './loginFormSaga'
 import profileFormSaga from './profileFormSaga'
 import changePwdFormSaga from './changePwdFormSaga'
 import { watchMemListFetch } from './memListSaga'
-import { watchSubFetch } from './subSaga'
+import {
+  watchSubFetch,
+  watchSubEdit
+} from './subSaga'
 import {
   watchUserFetch,
   watchUserLogout
@@ -25,12 +28,13 @@ function* rootSaga() {
     fork(loginFormSaga),
     fork(profileFormSaga),
     fork(changePwdFormSaga),
-    fork(watchPmFormSubscribe),
-    fork(watchPmFormSubmit),
     fork(watchUserFetch),
     fork(watchUserLogout),
-    fork(watchMemListFetch),
     fork(watchSubFetch),
+    fork(watchSubEdit),
+    fork(watchPmFormSubscribe),
+    fork(watchPmFormSubmit),
+    fork(watchMemListFetch),
     fork(watchPmListFetch),
     fork(watchPmListMakeDefault),
     fork(watchPmListRemove)

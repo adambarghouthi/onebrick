@@ -20,11 +20,12 @@ function reducer(state = initialState, action) {
 
     case actionTypes.SUB_FETCH:
     case actionTypes.SUB_SUBMIT:
+    case actionTypes.SUB_EDIT:
       return {
         ...state,
         ...{
           loading: true,
-          succes: initialState.success,
+          success: initialState.success,
           error: initialState.error
         }
       }
