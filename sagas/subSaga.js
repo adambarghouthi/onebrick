@@ -35,7 +35,38 @@ function* subFetch(action) {
   }
 }
 
+function* subEdit(action) {
+  const { params } = action
+  const { subId, ...rest } = params
+  const url = '/api/subscriptions'
+
+  let token
+
+  try {
+    token = localStorage.getItem('token')
+
+    const res = yield call(() => axios.put(url, {
+      token: token,
+      subscriptionId: subId,
+      ...rest
+    }))
+
+    const { data } = res
+    if (data.status === 'error') throw data
+
+    const sub = data.data
+
+    yield put(handlePopulate(sub))
+    yield put(handleSuccess('edit_sub_success'))
+  } catch (error) {
+    yield put(handleError(error.message))
+  }
+}
+
 export function* watchSubFetch() {
   yield takeLeading(actionTypes.SUB_FETCH, subFetch)
 }
 
+export function* watchSubEdit() {
+  yield takeLeading(actionTypes.SUB_EDIT, subEdit)
+}
