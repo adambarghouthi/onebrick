@@ -23,7 +23,9 @@ handler.get(async (req, res) => {
   const [user, userError] = await handleAsync(userWithToken(token))
   if (userError) throw userError
 
-  const [sub, subError] = await handleAsync(stripe.subscriptions.retrieve(subscriptionId))
+  const [sub, subError] = await handleAsync(stripe.subscriptions.retrieve(subscriptionId, {
+    expand: ['customer']
+  }))
   if (subError) throw subError
 
   res.json(handleSuccess(sub))
