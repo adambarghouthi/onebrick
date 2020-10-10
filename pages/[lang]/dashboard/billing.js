@@ -44,7 +44,9 @@ const Billing = () => {
   // fetch subscription and pmList after user is fetched
   useEffect(() => {
     if (user.auth) {
-      dispatch(subFetch(user.stripe.subscriptionId))
+      if (!sub.sub) {
+        dispatch(subFetch(user.stripe.subscriptionId))
+      }
       dispatch(pmListFetch(user.stripe.customerId))
     }
   }, [user.auth])
