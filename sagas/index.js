@@ -3,11 +3,21 @@ import signupFormSaga from './signupFormSaga'
 import loginFormSaga from './loginFormSaga'
 import profileFormSaga from './profileFormSaga'
 import changePwdFormSaga from './changePwdFormSaga'
-import { watchUserFetch, watchUserLogout } from './userSaga'
 import { watchMemListFetch } from './memListSaga'
-import { watchPmFormSubscribe } from './pmFormSaga'
 import { watchSubFetch } from './subSaga'
-import { watchPmListFetch } from './pmListSaga'
+import {
+  watchUserFetch,
+  watchUserLogout
+} from './userSaga'
+import {
+  watchPmFormSubscribe,
+  watchPmFormSubmit
+} from './pmFormSaga'
+import {
+  watchPmListFetch,
+  watchPmListMakeDefault,
+  watchPmListRemove
+} from './pmListSaga'
 
 function* rootSaga() {
   yield all([
@@ -16,11 +26,14 @@ function* rootSaga() {
     fork(profileFormSaga),
     fork(changePwdFormSaga),
     fork(watchPmFormSubscribe),
+    fork(watchPmFormSubmit),
     fork(watchUserFetch),
     fork(watchUserLogout),
     fork(watchMemListFetch),
     fork(watchSubFetch),
-    fork(watchPmListFetch)
+    fork(watchPmListFetch),
+    fork(watchPmListMakeDefault),
+    fork(watchPmListRemove)
   ])
 }
 
