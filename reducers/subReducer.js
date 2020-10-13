@@ -34,7 +34,8 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         ...{
-          loading: false
+          loading: false,
+          success: action.success
         }
       }
 
