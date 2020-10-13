@@ -4,6 +4,7 @@ import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/dist/client/router'
+import Dimensions from 'react-dimensions'
 import { locales, languageNames } from 'lib/translations/config'
 import { languageDirection } from 'lib/translations/config'
 import useTranslation from 'lib/translations/useTranslation'
@@ -11,7 +12,7 @@ import { LocaleContext } from 'context/LocaleContext'
 
 import { handleLogout } from 'actions/userActions'
 
-const Header = () => {
+const Header = (props) => {
   const { Header } = Layout
   const dispatch = useDispatch()
   const user = useSelector(state => state.user)
@@ -34,7 +35,13 @@ const Header = () => {
 
   return (
     <Header theme="light">
-      <img src="/assets/logo.png" />
+      <img
+        className="nav-logo"
+        src={`/assets/logo-nav-${
+          props.containerWidth > 575
+            ? 'lg'
+            : 'sm'
+        }.png`} />
       <Menu
         mode="horizontal"
         style={{
@@ -80,4 +87,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Dimensions()(Header)
