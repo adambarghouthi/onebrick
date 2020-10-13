@@ -26,7 +26,7 @@ const ChangePwdForm = (props) => {
   return (
     <Card>
       <Card.Grid hoverable={false} style={{ width: '100%' }}>
-        <Title className="mb-0" level={4}>
+        <Title className="mb-0" level={5}>
           { t('change_password') }
         </Title>
       </Card.Grid>

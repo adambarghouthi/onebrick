@@ -43,7 +43,7 @@ const Body = (props) => {
   return (
     <Card>
       <Card.Grid hoverable={false} style={{ width: '100%' }}>
-        <Title level={4}>
+        <Title level={5}>
           { t('payment_method') }
         </Title>
         <Space size={5}>

@@ -105,6 +105,7 @@ const Billing = () => {
           visible={showModal}
           onCancel={() => setShowModal(!showModal)}
           footer={null}
+          maskClosable={false}
           bodyStyle={{ padding: '0px' }}
         >
           <PaymentMethodForm

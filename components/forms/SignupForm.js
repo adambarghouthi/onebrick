@@ -30,7 +30,7 @@ const SignupForm = (props) => {
   return (
     <Card>
       <Card.Grid hoverable={false} style={{ width: '100%' }}>
-        <Title className="mb-0" level={4}>
+        <Title className="mb-0" level={5}>
           { t('create_new_account') }
         </Title>
       </Card.Grid>

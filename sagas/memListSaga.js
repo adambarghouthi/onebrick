@@ -34,6 +34,6 @@ function* memListFetch(action) {
   }
 }
 
-export function* watchMemListFetch() {
+export default function* watchMemListFetch() {
   yield takeLatest(actionTypes.MEMLIST_FETCH, memListFetch)
 }

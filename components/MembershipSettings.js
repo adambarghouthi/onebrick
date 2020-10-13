@@ -12,12 +12,7 @@ const gridStyle = {
 }
 
 const MembershipSettings = (props) => {
-  const {
-    onCancel,
-    onActivate,
-    onEdit,
-    data
-  } = props
+  const { onEdit, data } = props
 
   const { t } = useTranslation()
   const { locale } = React.useContext(LocaleContext)
@@ -32,7 +27,7 @@ const MembershipSettings = (props) => {
   return (
     <Card>
       <Card.Grid hoverable={false} style={{ width: '100%' }}>
-        <Title className="mb-0" level={4}>
+        <Title className="mb-0" level={5}>
           { t('membership_settings') }
         </Title>
       </Card.Grid>

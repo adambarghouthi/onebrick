@@ -22,11 +22,6 @@ export const handleEdit = params => ({
   params: params
 })
 
-// export const handleProrate = params => ({
-//   type: actionTypes.SUB_UPDATE,
-//   ...params
-// })
-
 export const handlePopulate = sub => ({
   type: actionTypes.SUB_POPULATE,
   sub: sub
