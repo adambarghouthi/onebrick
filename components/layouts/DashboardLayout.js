@@ -2,6 +2,7 @@ import React from 'react'
 import { Layout, Menu, Button, Space, Row, Col, ConfigProvider } from 'antd';
 import { ProfileOutlined, CreditCardOutlined, SettingOutlined } from '@ant-design/icons';
 import Link from 'next/link'
+import { useRouter } from 'next/dist/client/router'
 import Header from '../Header'
 import { LocaleContext } from 'context/LocaleContext'
 import useTranslation from 'lib/translations/useTranslation'
@@ -15,6 +16,17 @@ const DashboardLayout = (props) => {
   const { locale } = React.useContext(LocaleContext)
   const direction = languageDirection[locale] || 'ltr'
   const { t } = useTranslation()
+  const router = useRouter()
+
+  let path
+
+  if (router.pathname.includes('profile')) {
+    path = 'profile'
+  } else if (router.pathname.includes('billing')) {
+    path = 'billing'
+  } else if (router.pathname.includes('membership')) {
+    path = 'membership'
+  }
 
   return (
     <ConfigProvider direction={direction}>
@@ -24,7 +36,7 @@ const DashboardLayout = (props) => {
           <Row>
             <Col xs={24} sm={6}>
               <Menu
-                selectedKeys={['profile']}
+                selectedKeys={[path]}
                 mode="vertical">
                 <Menu.Item
                   key="profile"
