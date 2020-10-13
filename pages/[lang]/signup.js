@@ -36,7 +36,7 @@ import {
 } from 'actions/signupFormActions'
 
 import {
-  handleFetch as memListOnFetch,
+  handleFetch as memListFetch,
   handleSelect as memListOnSelect
 } from 'actions/memListActions'
 
@@ -46,6 +46,8 @@ import {
 } from 'actions/pmFormActions'
 
 const { Step } = Steps
+
+const prodId = process.env.NEXT_PUBLIC_PROD_ID
 
 const Signup = () => {
   const dispatch = useDispatch()
@@ -62,7 +64,12 @@ const Signup = () => {
 
   // track user authorization
   useEffect(() => {
-    if (user.auth) setStep(1)
+    if (user.auth) {
+      setStep(1)
+      if (!memList.mems.length) {
+        dispatch(memListFetch(prodId))
+      }
+    }
   }, [user.auth])
 
   // track memList selected
@@ -114,7 +121,6 @@ const Signup = () => {
       case 1:
         return (
           <MembershipList
-            onFetch={product => dispatch(memListOnFetch(product))}
             onSelect={selected => dispatch(memListOnSelect(selected))}
             data={memList}
           />
