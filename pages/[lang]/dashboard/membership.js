@@ -37,8 +37,8 @@ const Membership = () => {
   // fetch subscription and memList after user is fetched
   useEffect(() => {
     if (user.auth) {
-      dispatch(subFetch(user.stripe.subscriptionId))
-      dispatch(memListFetch(prodId))
+      if (!sub.sub) dispatch(subFetch(user.stripe.subscriptionId))
+      if (!memList.mems.length) dispatch(memListFetch(prodId))
     }
   }, [user.auth])
 
