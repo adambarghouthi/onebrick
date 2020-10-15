@@ -8,6 +8,7 @@ import Dimensions from 'react-dimensions'
 import { locales, languageNames } from 'lib/translations/config'
 import { languageDirection } from 'lib/translations/config'
 import useTranslation from 'lib/translations/useTranslation'
+import { getInitialLocale } from 'lib/translations/getInitialLocale'
 import { LocaleContext } from 'context/LocaleContext'
 
 import { handleLogout } from 'actions/userActions'
@@ -16,17 +17,29 @@ const Header = (props) => {
   const { Header } = Layout
   const dispatch = useDispatch()
   const user = useSelector(state => state.user)
+
   const { locale } = React.useContext(LocaleContext)
   const direction = languageDirection[locale] || 'ltr'
   const { t } = useTranslation()
+  const router = useRouter()
 
   const dropdownOverlay = (
     <Menu
       onClick={(item) => {
-        if (item.key === 'logout') {
-          dispatch(handleLogout())
+        switch(item.key) {
+          case 'logout':
+            dispatch(handleLogout())
+            break
+          case 'dashboard':
+            router.replace('/[lang]/dashboard/profile', `/${getInitialLocale()}/dashboard/profile`)
+            break
+          default:
+            break
         }
       }}>
+      <Menu.Item key="dashboard">
+        <UserOutlined /> { t('dashboard') }
+      </Menu.Item>
       <Menu.Item key="logout">
         <LogoutOutlined /> { t('logout') }
       </Menu.Item>
