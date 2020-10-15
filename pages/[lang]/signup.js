@@ -27,6 +27,7 @@ import MembershipList from 'components/MembershipList'
 import { LocaleContext } from 'context/LocaleContext'
 import { languageDirection } from 'lib/translations/config'
 import useTranslation from 'lib/translations/useTranslation'
+import handleMessage from 'lib/handleMessage'
 import withLocale from 'hocs/withLocale'
 import withNonAuth from 'hocs/withNonAuth'
 
@@ -66,9 +67,9 @@ const Signup = () => {
   useEffect(() => {
     if (user.auth) {
       setStep(1)
-      if (!memList.mems.length) {
-        dispatch(memListFetch(prodId))
-      }
+      dispatch(memListFetch(prodId))
+    } else {
+      setStep(0)
     }
   }, [user.auth])
 
@@ -81,31 +82,19 @@ const Signup = () => {
   // track signupForm success & error
   useEffect(() => {
     const { success, error } = signupForm
-    if (success) message.success(t(success))
-    else if (error) {
-      if (t(error)) message.error(t(error))
-      else message.error(error)
-    }
+    handleMessage(success, error, t)
   }, [signupForm.success, signupForm.error])
 
   // track memList error
   useEffect(() => {
     const { error } = memList
-    if (error) {
-      if (t(error)) message.error(t(error))
-      else message.error(error)
-    }
+    handleMessage(null, error, t)
   }, [memList.error])
 
   // track pmForm success & error
   useEffect(() => {
     const { success, error } = pmForm
-    if (success) {
-      message.success(t(success))
-    } else if (error) {
-      if (t(error)) message.error(t(error))
-      else message.error(error)
-    }
+    handleMessage(success, error, t)
   }, [pmForm.succes, pmForm.error])
 
   const renderStep = (step) => {

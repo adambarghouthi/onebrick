@@ -16,6 +16,7 @@ import {
 import { GeneralLayout } from 'components/layouts'
 import { LoginForm } from 'components/forms'
 import useTranslation from 'lib/translations/useTranslation'
+import handleMessage from 'lib/handleMessage'
 import withLocale from 'hocs/withLocale'
 import withNonAuth from 'hocs/withNonAuth'
 
@@ -31,11 +32,7 @@ const Login = () => {
 
   useEffect(() => {
     const { success, error } = loginForm
-    if (success) message.success(t(success))
-    else if (error) {
-      if (t(error)) message.error(t(error))
-      else message.error(error)
-    }
+    handleMessage(success, error, t)
   }, [loginForm.success, loginForm.error])
 
   return (
