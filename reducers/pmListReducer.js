@@ -47,6 +47,9 @@ function reducer(state = initialState, action) {
         error: action.error
       }
 
+    case actionTypes.USER_LOGOUT:
+      return { ...initialState }
+
     default:
       return { ...state }
   }
