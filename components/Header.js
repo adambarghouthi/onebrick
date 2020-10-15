@@ -8,7 +8,6 @@ import Dimensions from 'react-dimensions'
 import { locales, languageNames } from 'lib/translations/config'
 import { languageDirection } from 'lib/translations/config'
 import useTranslation from 'lib/translations/useTranslation'
-import { getInitialLocale } from 'lib/translations/getInitialLocale'
 import { LocaleContext } from 'context/LocaleContext'
 
 import { handleLogout } from 'actions/userActions'
@@ -31,7 +30,7 @@ const Header = (props) => {
             dispatch(handleLogout())
             break
           case 'dashboard':
-            router.replace('/[lang]/dashboard/profile', `/${getInitialLocale()}/dashboard/profile`)
+            router.replace('/[lang]/dashboard/profile', `/${locale}/dashboard/profile`)
             break
           default:
             break
@@ -48,13 +47,17 @@ const Header = (props) => {
 
   return (
     <Header theme="light">
-      <img
-        className="nav-logo"
-        src={`/assets/logo-nav-${
-          props.containerWidth > 575
-            ? 'lg'
-            : 'sm'
-        }.png`} />
+      <Link href="/[lang]" as={`/${locale}`}>
+        <a>
+          <img
+            className="nav-logo"
+            src={`/assets/logo-nav-${
+              props.containerWidth > 575
+                ? 'lg'
+                : 'sm'
+            }.png`} />
+        </a>
+      </Link>
       <Menu
         mode="horizontal"
         style={{
