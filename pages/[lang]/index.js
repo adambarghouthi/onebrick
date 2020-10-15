@@ -39,7 +39,7 @@ const Index = () => {
         <div className="flex-section">
           <Layout className="container">
             <div className="text-center mb-4">
-              <img src="/assets/logo_icon_lg.png" height="150" width="123" />
+              <img src="/assets/psf-logo.png" height="150" width="123" />
             </div>
             <Title className="text-center" level={1}>
               { t('splash_title') }

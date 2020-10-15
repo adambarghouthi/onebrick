@@ -307,6 +307,9 @@ span.ant-typography {
 }
 
 @media (max-width: 575px) {
+  header.ant-layout-header {
+    padding: 0px 30px;
+  }
   .ant-col-rtl {
     text-align: right !important;
   }
