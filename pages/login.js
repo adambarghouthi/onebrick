@@ -15,9 +15,8 @@ import {
 } from 'antd'
 import { GeneralLayout } from 'components/layouts'
 import { LoginForm } from 'components/forms'
-import useTranslation from 'lib/translations/useTranslation'
+import useLocalization from 'lib/localization/useLocalization'
 import handleMessage from 'lib/handleMessage'
-import withLocale from 'hocs/withLocale'
 import withNonAuth from 'hocs/withNonAuth'
 
 import {
@@ -28,7 +27,7 @@ import {
 const Login = () => {
   const dispatch = useDispatch()
   const loginForm = useSelector(state => state.loginForm)
-  const { t } = useTranslation()
+  const { t } = useLocalization()
 
   useEffect(() => {
     const { success, error } = loginForm
@@ -57,4 +56,4 @@ const Login = () => {
   )
 }
 
-export default compose(withLocale, withNonAuth)(Login)
+export default withNonAuth(Login)

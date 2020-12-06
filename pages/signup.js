@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { compose } from 'redux'
 import { useRouter } from 'next/dist/client/router'
@@ -24,11 +24,8 @@ import { GeneralLayout } from 'components/layouts'
 import { PaymentMethodForm, SignupForm } from 'components/forms'
 import BillingSummary from 'components/BillingSummary'
 import MembershipList from 'components/MembershipList'
-import { LocaleContext } from 'context/LocaleContext'
-import { languageDirection } from 'lib/translations/config'
-import useTranslation from 'lib/translations/useTranslation'
+import useLocalization from 'lib/localization/useLocalization'
 import handleMessage from 'lib/handleMessage'
-import withLocale from 'hocs/withLocale'
 import withNonAuth from 'hocs/withNonAuth'
 
 import {
@@ -58,10 +55,7 @@ const Signup = () => {
   const pmForm = useSelector(state => state.pmForm)
 
   const [step, setStep] = useState(0)
-  const { locale } = useContext(LocaleContext)
-  const router = useRouter()
-  const direction = languageDirection[locale] || 'ltr'
-  const { t } = useTranslation()
+  const { t, dir } = useLocalization()
 
   // track user authorization
   useEffect(() => {
@@ -208,4 +202,4 @@ const Signup = () => {
   )
 }
 
-export default compose(withLocale, withNonAuth)(Signup)
+export default withNonAuth(Signup)

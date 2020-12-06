@@ -1,6 +1,5 @@
 import React from 'react'
 import Head from 'next/head'
-import { compose } from 'redux'
 import {
   Typography,
   Layout,
@@ -16,19 +15,16 @@ import {
   DownOutlined,
   CheckCircleOutlined
 } from '@ant-design/icons'
+import { useRouter } from 'next/dist/client/router';
 import { GeneralLayout } from 'components/layouts'
-import { LocaleContext } from 'context/LocaleContext'
-import { languageDirection } from 'lib/translations/config'
-import useTranslation from 'lib/translations/useTranslation'
+import useLocalization from 'lib/localization/useLocalization'
 import withNonAuth from 'hocs/withNonAuth'
-import withLocale from 'hocs/withLocale'
 
 const { Title, Text } = Typography
 
 const Index = () => {
-  const { t } = useTranslation()
-  const { locale } = React.useContext(LocaleContext)
-  const direction = languageDirection[locale] || 'ltr'
+  const { t, dir } = useLocalization();
+  const { locale } = useRouter();
 
   return (
     <>
@@ -82,7 +78,7 @@ const Index = () => {
                   &nbsp;&nbsp;&nbsp;&nbsp;
                 </span>
                 {
-                  direction === 'ltr'
+                  dir === 'ltr'
                     ? <ArrowRightOutlined />
                     : <ArrowLeftOutlined />
                 }
@@ -131,7 +127,7 @@ const Index = () => {
                     &nbsp;&nbsp;&nbsp;&nbsp;
                   </span>
                   {
-                    direction === 'ltr'
+                    dir === 'ltr'
                       ? <ArrowRightOutlined />
                       : <ArrowLeftOutlined />
                   }
@@ -171,7 +167,7 @@ const Index = () => {
                     &nbsp;&nbsp;&nbsp;&nbsp;
                   </span>
                   {
-                    direction === 'ltr'
+                    dir === 'ltr'
                       ? <ArrowRightOutlined />
                       : <ArrowLeftOutlined />
                   }
@@ -211,4 +207,4 @@ const Index = () => {
   )
 }
 
-export default compose(withLocale, withNonAuth)(Index)
+export default withNonAuth(Index)
