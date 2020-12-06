@@ -9,7 +9,7 @@ import {
 
 function* memListFetch(action) {
   const { product } = action
-  const url = '/api/memberships'
+  const url = '/api/stripe/memberships'
 
   try {
     const res = yield call(() => axios.get(url, {

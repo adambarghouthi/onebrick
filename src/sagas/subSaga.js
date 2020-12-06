@@ -10,7 +10,7 @@ import {
 
 function* subFetch(action) {
   const { subId } = action
-  const url = '/api/subscriptions'
+  const url = '/api/stripe/subscriptions'
 
   let token
 

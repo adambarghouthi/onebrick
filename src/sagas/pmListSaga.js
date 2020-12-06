@@ -13,7 +13,7 @@ import { handleFetch as subFetch } from 'src/actions/subActions'
 
 function* pmListFetch(action) {
   const { cusId } = action
-  const url = '/api/payment-methods'
+  const url = '/api/stripe/payment-methods'
 
   let token
 

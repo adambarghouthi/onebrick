@@ -55,8 +55,8 @@ function* pmFormSubscribe(action) {
   const { stripe, price } = form
   const urls = {
     users: '/api/users',
-    members: '/api/members',
-    subscriptions: '/api/subscriptions'
+    members: '/api/stripe/members',
+    subscriptions: '/api/stripe/subscriptions'
   }
 
   let token, cus, sub
