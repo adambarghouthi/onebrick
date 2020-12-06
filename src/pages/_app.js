@@ -1,4 +1,4 @@
-import { wrapper } from 'store';
+import { wrapper } from 'src/store';
 
 import 'antd/dist/antd.css';
 import 'styles/vars.css';
