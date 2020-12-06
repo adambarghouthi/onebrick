@@ -3,9 +3,8 @@ import { Layout, Menu, Button, Space, Row, Col, ConfigProvider } from 'antd';
 import { ProfileOutlined, CreditCardOutlined, SettingOutlined } from '@ant-design/icons';
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
-import Header from '../Header'
+import Navbar from '../Navbar'
 import useLocalization from 'lib/localization/useLocalization'
-import LocaleSwitch from '../LocaleSwitch'
 
 const { SubMenu } = Menu;
 
@@ -27,7 +26,7 @@ const DashboardLayout = (props) => {
   return (
     <ConfigProvider direction={direction}>
       <Layout>
-        <Header />
+        <Navbar />
         <Layout className="container">
           <Row>
             <Col xs={24} sm={6}>
@@ -68,7 +67,7 @@ const DashboardLayout = (props) => {
           </Row>
         </Layout>
         <Footer style={{ textAlign: 'center' }}>
-          <LocaleSwitch />
+          Palestinian Social Fund
         </Footer>
       </Layout>
     </ConfigProvider>

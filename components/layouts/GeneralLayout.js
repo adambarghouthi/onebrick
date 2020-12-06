@@ -1,7 +1,6 @@
 import React from 'react';
 import { Layout, ConfigProvider } from 'antd';
-import Header from '../Header';
-import LocaleSwitch from '../LocaleSwitch';
+import Navbar from '../Navbar';
 import useLocalization from 'lib/localization/useLocalization';
 
 const GeneralLayout = (props) => {
@@ -11,12 +10,12 @@ const GeneralLayout = (props) => {
   return (
     <ConfigProvider direction={dir}>
       <Layout>
-        <Header />
+        <Navbar />
         <Content>
           { props.children }
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          <LocaleSwitch />
+          Palestinian Social Fund
         </Footer>
       </Layout>
     </ConfigProvider>
