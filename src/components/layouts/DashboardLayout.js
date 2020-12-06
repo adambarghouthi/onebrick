@@ -4,7 +4,7 @@ import { ProfileOutlined, CreditCardOutlined, SettingOutlined } from '@ant-desig
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
 import Navbar from '../Navbar'
-import useLocalization from 'lib/localization/useLocalization'
+import useLocalization from 'src/lib/localization/useLocalization'
 
 const { SubMenu } = Menu;
 

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Spin } from 'antd'
 import { getDisplayName } from 'next/dist/next-server/lib/utils'
 import { useRouter } from 'next/dist/client/router'
-import { handleFetch } from 'actions/userActions'
+import { handleFetch } from 'src/actions/userActions'
 
 const wrapper = (WrappedPage) => {
   const WithNonAuth = () => {

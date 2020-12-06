@@ -11,10 +11,10 @@ import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/dist/client/router'
 import Dimensions from 'react-dimensions'
-import useLocalization from 'lib/localization/useLocalization'
-import LocaleSwitch from 'components/LocaleSwitch';
+import useLocalization from 'src/lib/localization/useLocalization'
+import LocaleSwitch from 'src/components/LocaleSwitch';
 
-import { handleLogout } from 'actions/userActions'
+import { handleLogout } from 'src/actions/userActions'
 
 const { Header } = Layout
 const { Title } = Typography

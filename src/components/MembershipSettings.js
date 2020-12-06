@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Card, Typography, Button, Row, Col, Skeleton } from 'antd'
-// import { CheckCircleOutlined, HeartTwoTone } from '@ant-design/icons'
-import useLocalization from 'lib/localization/useLocalization'
+import useLocalization from 'src/lib/localization/useLocalization'
 
 const { Title, Text } = Typography
 

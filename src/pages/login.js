@@ -13,16 +13,16 @@ import {
   Row,
   Col
 } from 'antd'
-import { GeneralLayout } from 'components/layouts'
-import { LoginForm } from 'components/forms'
-import useLocalization from 'lib/localization/useLocalization'
-import handleMessage from 'lib/handleMessage'
+import { GeneralLayout } from 'src/components/layouts'
+import { LoginForm } from 'src/components/forms'
+import useLocalization from 'src/lib/localization/useLocalization'
+import handleMessage from 'src/lib/handleMessage'
 import withNonAuth from 'hocs/withNonAuth'
 
 import {
   handleChange,
   handleSubmit
-} from 'actions/loginFormActions'
+} from 'src/actions/loginFormActions'
 
 const Login = () => {
   const dispatch = useDispatch()

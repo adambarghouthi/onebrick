@@ -1,11 +1,12 @@
 import axios from 'axios'
 import { call, put, takeLeading } from 'redux-saga/effects'
+
 import {
   actionTypes,
   handleSuccess,
   handleError,
   handlePopulate
-} from 'actions/subActions'
+} from 'src/actions/subActions'
 
 function* subFetch(action) {
   const { subId } = action

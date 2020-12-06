@@ -20,28 +20,28 @@ import {
   ArrowRightOutlined,
   ArrowLeftOutlined
 } from '@ant-design/icons'
-import { GeneralLayout } from 'components/layouts'
-import { PaymentMethodForm, SignupForm } from 'components/forms'
-import BillingSummary from 'components/BillingSummary'
-import MembershipList from 'components/MembershipList'
-import useLocalization from 'lib/localization/useLocalization'
-import handleMessage from 'lib/handleMessage'
-import withNonAuth from 'hocs/withNonAuth'
+import { GeneralLayout } from 'src/components/layouts'
+import { PaymentMethodForm, SignupForm } from 'src/components/forms'
+import BillingSummary from 'src/components/BillingSummary'
+import MembershipList from 'src/components/MembershipList'
+import useLocalization from 'src/lib/localization/useLocalization'
+import handleMessage from 'src/lib/handleMessage'
+import withNonAuth from 'src/hocs/withNonAuth'
 
 import {
   handleChange as signupFormOnChange,
   handleSubmit as signupFormOnSubmit
-} from 'actions/signupFormActions'
+} from 'src/actions/signupFormActions'
 
 import {
   handleFetch as memListFetch,
   handleSelect as memListOnSelect
-} from 'actions/memListActions'
+} from 'src/actions/memListActions'
 
 import {
   handleChange as pmFormOnChange,
   handleSubscribe as pmFormOnSubscribe
-} from 'actions/pmFormActions'
+} from 'src/actions/pmFormActions'
 
 const { Step } = Steps
 

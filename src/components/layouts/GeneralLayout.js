@@ -1,7 +1,7 @@
 import React from 'react';
 import { Layout, ConfigProvider } from 'antd';
 import Navbar from '../Navbar';
-import useLocalization from 'lib/localization/useLocalization';
+import useLocalization from 'src/lib/localization/useLocalization';
 
 const GeneralLayout = (props) => {
   const { Footer, Content } = Layout;

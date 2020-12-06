@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { message, Card, Form, Input, Button, Typography } from 'antd'
-import useLocalization from 'lib/localization/useLocalization'
+import useLocalization from 'src/lib/localization/useLocalization'
 import validateEmail from 'lib/validateEmail'
 
 const { Title } = Typography

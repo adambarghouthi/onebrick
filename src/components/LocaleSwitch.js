@@ -3,7 +3,7 @@ import { Select } from 'antd';
 import { useRouter } from 'next/dist/client/router';
 import { GlobalOutlined } from '@ant-design/icons';
 
-import { localeNames } from 'lib/localization/config';
+import { localeNames } from 'src/lib/localization/config';
 
 const LocaleSwitch = () => {
   const router = useRouter();

@@ -1,10 +1,11 @@
 import axios from 'axios'
 import { call, put, takeLeading } from 'redux-saga/effects'
+
 import {
   actionTypes,
   handleLogin,
   handleLogout
-} from 'actions/userActions'
+} from 'src/actions/userActions'
 
 function* userFetch(action) {
   const url = '/api/users'

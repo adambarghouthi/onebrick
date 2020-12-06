@@ -1,13 +1,14 @@
 import axios from 'axios'
 import { call, put, takeLeading } from 'redux-saga/effects'
+
 import {
   actionTypes,
   handleSuccess,
   handleError,
   handleChange
-} from 'actions/profileFormActions'
+} from 'src/actions/profileFormActions'
 
-import { handleEdit } from 'actions/userActions'
+import { handleEdit } from 'src/actions/userActions'
 
 function* profileFormSubmit(action) {
   const { form } = action

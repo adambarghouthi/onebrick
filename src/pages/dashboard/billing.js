@@ -3,26 +3,26 @@ import { useDispatch, useSelector } from 'react-redux'
 import { compose } from 'redux'
 import Head from 'next/head'
 import { Skeleton, Typography, Modal } from 'antd'
-import { DashboardLayout } from 'components/layouts'
-import { PaymentMethodForm } from 'components/forms'
-import BillingSummary from 'components/BillingSummary'
-import PaymentMethodList from 'components/PaymentMethodList'
-import useLocalization from 'lib/localization/useLocalization'
-import handleMessage from 'lib/handleMessage'
-import withAuth from 'hocs/withAuth'
+import { DashboardLayout } from 'src/components/layouts'
+import { PaymentMethodForm } from 'src/components/forms'
+import BillingSummary from 'src/components/BillingSummary'
+import PaymentMethodList from 'src/components/PaymentMethodList'
+import useLocalization from 'src/lib/localization/useLocalization'
+import handleMessage from 'src/lib/handleMessage'
+import withAuth from 'src/hocs/withAuth'
 
-import { handleFetch as subFetch } from 'actions/subActions'
+import { handleFetch as subFetch } from 'src/actions/subActions'
 
 import {
   handleFetch as pmListFetch,
   handleMakeDefault as pmListOnMakeDefault,
   handleRemove as pmListOnRemove
-} from 'actions/pmListActions'
+} from 'src/actions/pmListActions'
 
 import {
   handleChange as pmFormOnChange,
   handleSubmit as pmFormOnSubmit
-} from 'actions/pmFormActions'
+} from 'src/actions/pmFormActions'
 
 const { Text } = Typography
 

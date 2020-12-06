@@ -14,7 +14,7 @@ import {
   MoreOutlined,
   ExclamationCircleOutlined
 } from '@ant-design/icons'
-import useLocalization from 'lib/localization/useLocalization'
+import useLocalization from 'src/lib/localization/useLocalization'
 
 const { Title, Text } = Typography
 

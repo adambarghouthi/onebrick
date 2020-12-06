@@ -10,7 +10,7 @@ import {
 } from '@stripe/react-stripe-js'
 import { useRouter } from 'next/dist/client/router'
 import countries from 'lib/countries'
-import useLocalization from 'lib/localization/useLocalization'
+import useLocalization from 'src/lib/localization/useLocalization'
 
 const { Title } = Typography
 

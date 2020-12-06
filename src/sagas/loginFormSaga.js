@@ -4,8 +4,8 @@ import {
   actionTypes,
   handleSuccess,
   handleError
-} from 'actions/loginFormActions'
-import { handleLogin } from 'actions/userActions'
+} from 'src/actions/loginFormActions'
+import { handleLogin } from 'src/actions/userActions'
 
 function* loginFormSubmit(action) {
   const { form } = action

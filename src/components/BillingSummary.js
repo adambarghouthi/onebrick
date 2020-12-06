@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Card, Descriptions, Tag, Statistic } from 'antd';
 import { CheckCircleTwoTone, CloseCircleTwoTone } from '@ant-design/icons'
-import useLocalization from 'lib/localization/useLocalization'
+import useLocalization from 'src/lib/localization/useLocalization'
 
 const { Title, Text } = Typography
 

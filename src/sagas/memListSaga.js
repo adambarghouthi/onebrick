@@ -5,7 +5,7 @@ import {
   handleSuccess,
   handleError,
   handlePopulate
-} from 'actions/memListActions'
+} from 'src/actions/memListActions'
 
 function* memListFetch(action) {
   const { product } = action

@@ -4,7 +4,7 @@ import {
   actionTypes,
   handleSuccess,
   handleError
-} from 'actions/changePwdFormActions'
+} from 'src/actions/changePwdFormActions'
 
 function* changePwdFormSubmit(action) {
   const { form } = action

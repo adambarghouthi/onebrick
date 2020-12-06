@@ -16,9 +16,9 @@ import {
   CheckCircleOutlined
 } from '@ant-design/icons'
 import { useRouter } from 'next/dist/client/router';
-import { GeneralLayout } from 'components/layouts'
-import useLocalization from 'lib/localization/useLocalization'
-import withNonAuth from 'hocs/withNonAuth'
+import { GeneralLayout } from 'src/components/layouts'
+import useLocalization from 'src/lib/localization/useLocalization'
+import withNonAuth from 'src/hocs/withNonAuth'
 
 const { Title, Text } = Typography
 
