@@ -1,20 +1,18 @@
-import React from 'react'
+import React from 'react';
 import { Select } from 'antd';
-import { useRouter } from 'next/dist/client/router'
-import { locales, languageNames } from 'lib/translations/config'
-import { LocaleContext } from 'context/LocaleContext'
+import { useRouter } from 'next/dist/client/router';
+import { locales, languageNames } from 'lib/translations/config';
 
 const LocaleSwitch = () => {
-  const router = useRouter()
-  const { locale } = React.useContext(LocaleContext)
+  const router = useRouter();
+  const { locale } = router;
 
   const handleChange = React.useCallback(
-    (value) => {
-      const regex = new RegExp(`^/(${locales.join('|')})`)
-      router.push(router.pathname, router.asPath.replace(regex, `/${value}`))
+    (newLocale) => {
+      router.push(router.pathname, router.pathname, { locale: newLocale });
     },
     [router]
-  )
+  );
 
   return (
      <Select
@@ -31,6 +29,6 @@ const LocaleSwitch = () => {
       }
     </Select>
   )
-}
+};
 
-export default LocaleSwitch
+export default LocaleSwitch;
