@@ -65,6 +65,22 @@ span.ant-typography {
   background-color: transparent;
 }
 
+.menu-row .ant-menu {
+  border: none;
+}
+
+.menu-row .ant-menu .ant-menu-item,
+.menu-row .ant-menu .ant-menu-item:hover {
+  border: none !important;
+}
+
+.menu-row .ant-menu[direction="ltr"] > * {
+  float: right;
+}
+.menu-row .ant-menu[direction="rtl"] > * {
+  float: left;
+}
+
 .ant-layout-content {
   min-height: calc(100vh - 144px);
 }
