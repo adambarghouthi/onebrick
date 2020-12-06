@@ -1,4 +1,4 @@
-import { actionTypes } from 'actions/signupFormActions'
+import { actionTypes } from 'src/actions/signupFormActions'
 
 const initialState = {}
 

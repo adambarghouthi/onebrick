@@ -1,4 +1,4 @@
-import { actionTypes } from 'actions/memListActions'
+import { actionTypes } from 'src/actions/memListActions'
 
 const initialState = {
   mems: [],

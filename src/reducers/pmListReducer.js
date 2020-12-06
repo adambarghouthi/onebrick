@@ -1,4 +1,4 @@
-import { actionTypes } from 'actions/pmListActions'
+import { actionTypes } from 'src/actions/pmListActions'
 
 const initialState = {
   pms: [],

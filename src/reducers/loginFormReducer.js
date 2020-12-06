@@ -1,4 +1,4 @@
-import { actionTypes } from 'actions/loginFormActions'
+import { actionTypes } from 'src/actions/loginFormActions'
 
 const initialState = {
   email: '',

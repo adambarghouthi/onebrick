@@ -1,4 +1,4 @@
-import { actionTypes } from 'actions/profileFormActions'
+import { actionTypes } from 'src/actions/profileFormActions'
 
 const initialState = {
   email: '',

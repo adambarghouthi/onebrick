@@ -1,4 +1,4 @@
-import { actionTypes } from 'actions/changePwdFormActions'
+import { actionTypes } from 'src/actions/changePwdFormActions'
 
 const initialState = {
   currentPassword: '',

@@ -1,4 +1,4 @@
-import { actionTypes } from 'actions/pmFormActions'
+import { actionTypes } from 'src/actions/pmFormActions'
 
 const initialState = {
   cardholder: '',

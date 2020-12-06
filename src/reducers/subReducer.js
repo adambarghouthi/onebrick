@@ -1,4 +1,4 @@
-import { actionTypes } from 'actions/subActions'
+import { actionTypes } from 'src/actions/subActions'
 
 const initialState = {
   sub: null,

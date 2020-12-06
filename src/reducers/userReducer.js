@@ -1,4 +1,4 @@
-import { actionTypes } from 'actions/userActions'
+import { actionTypes } from 'src/actions/userActions'
 
 const initialState = {
   email: '',
