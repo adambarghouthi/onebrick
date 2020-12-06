@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Form, Input, Button, Typography } from 'antd'
-import useTranslation from 'lib/translations/useTranslation'
+import useLocalization from 'lib/localization/useLocalization'
 
 const { Title } = Typography
 
@@ -16,7 +16,7 @@ const tailLayout = {
 const ChangePwdForm = (props) => {
   const { onChange, onSubmit, data } = props
   const { loading, ...rest } = data
-  const { t } = useTranslation()
+  const { t } = useLocalization()
 
   const fields = Object.keys(rest).map(key => ({
     name: [key],

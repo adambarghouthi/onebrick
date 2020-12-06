@@ -14,9 +14,7 @@ import {
   MoreOutlined,
   ExclamationCircleOutlined
 } from '@ant-design/icons'
-import { LocaleContext } from 'context/LocaleContext'
-import { languageDirection } from 'lib/translations/config'
-import useTranslation from 'lib/translations/useTranslation'
+import useLocalization from 'lib/localization/useLocalization'
 
 const { Title, Text } = Typography
 
@@ -30,9 +28,7 @@ const PaymentMethodList = (props) => {
     data
   } = props
 
-  const { locale } = React.useContext(LocaleContext)
-  const direction = languageDirection[locale] || 'ltr'
-  const { t } = useTranslation()
+  const { t } = useLocalization()
   const [modal, contextHolder] = Modal.useModal()
 
   const confirmRemove = (pmId) => {

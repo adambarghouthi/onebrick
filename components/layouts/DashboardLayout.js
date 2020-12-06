@@ -4,18 +4,14 @@ import { ProfileOutlined, CreditCardOutlined, SettingOutlined } from '@ant-desig
 import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
 import Header from '../Header'
-import { LocaleContext } from 'context/LocaleContext'
-import useTranslation from 'lib/translations/useTranslation'
-import { languageDirection } from 'lib/translations/config'
+import useLocalization from 'lib/localization/useLocalization'
 import LocaleSwitch from '../LocaleSwitch'
 
 const { SubMenu } = Menu;
 
 const DashboardLayout = (props) => {
   const { Footer, Content, Sider } = Layout;
-  const { locale } = React.useContext(LocaleContext)
-  const direction = languageDirection[locale] || 'ltr'
-  const { t } = useTranslation()
+  const { t, dir } = useLocalization()
   const router = useRouter()
 
   let path

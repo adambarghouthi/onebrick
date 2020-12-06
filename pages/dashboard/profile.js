@@ -1,14 +1,11 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { compose } from 'redux'
 import Head from 'next/head'
 import { DashboardLayout } from 'components/layouts'
 import { ChangePwdForm, ProfileForm } from 'components/forms'
-import { LocaleContext } from 'context/LocaleContext'
-import { languageDirection } from 'lib/translations/config'
-import useTranslation from 'lib/translations/useTranslation'
+import useLocalization from 'lib/localization/useLocalization'
 import handleMessage from 'lib/handleMessage'
-import withLocale from 'hocs/withLocale'
 import withAuth from 'hocs/withAuth'
 
 import {
@@ -27,9 +24,7 @@ const Profile = () => {
   const changePwdForm = useSelector(state => state.changePwdForm)
   const user = useSelector(state => state.user)
 
-  const { t } = useTranslation()
-  const { locale } = useContext(LocaleContext)
-  const direction = languageDirection[locale] || 'ltr'
+  const { t } = useLocalization()
 
   // populate profileForm once
   useEffect(() => {

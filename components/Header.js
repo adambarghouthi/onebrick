@@ -5,10 +5,7 @@ import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/dist/client/router'
 import Dimensions from 'react-dimensions'
-import { locales, languageNames } from 'lib/translations/config'
-import { languageDirection } from 'lib/translations/config'
-import useTranslation from 'lib/translations/useTranslation'
-import { LocaleContext } from 'context/LocaleContext'
+import useLocalization from 'lib/localization/useLocalization'
 
 import { handleLogout } from 'actions/userActions'
 
@@ -17,9 +14,7 @@ const Header = (props) => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.user)
 
-  const { locale } = React.useContext(LocaleContext)
-  const direction = languageDirection[locale] || 'ltr'
-  const { t } = useTranslation()
+  const { t, dir } = useLocalization()
   const router = useRouter()
 
   const dropdownOverlay = (
@@ -47,7 +42,7 @@ const Header = (props) => {
 
   return (
     <Header theme="light">
-      <Link href="/[lang]" as={`/${locale}`}>
+      <Link href="/">
         <a>
           <img
             className="nav-logo"
@@ -61,7 +56,7 @@ const Header = (props) => {
       <Menu
         mode="horizontal"
         style={{
-          float: direction === 'ltr'
+          float: dir === 'ltr'
             ? 'right'
             : 'left'
         }}
@@ -74,7 +69,7 @@ const Header = (props) => {
                   overlay={dropdownOverlay}
                   arrow={false}
                   placement={
-                    direction === 'ltr'
+                    dir === 'ltr'
                       ? 'bottomRight'
                       : 'bottomLeft'
                   }
@@ -86,12 +81,12 @@ const Header = (props) => {
           : (
               <>
                 <Button type="text">
-                  <Link href="/[lang]/login" as={`/${locale}/login`}>
+                  <Link href="/login">
                     <a>{ t('login') }</a>
                   </Link>
                 </Button>
                 <Button type="primary">
-                  <Link href="/[lang]/signup" as={`/${locale}/signup`}>
+                  <Link href="/signup">
                     <a>{ t('support') }</a>
                   </Link>
                 </Button>

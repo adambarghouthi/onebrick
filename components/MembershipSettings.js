@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
 import { Card, Typography, Button, Row, Col, Skeleton } from 'antd'
 // import { CheckCircleOutlined, HeartTwoTone } from '@ant-design/icons'
-import useTranslation from 'lib/translations/useTranslation'
-import { languageDirection } from 'lib/translations/config'
-import { LocaleContext } from 'context/LocaleContext'
+import useLocalization from 'lib/localization/useLocalization'
 
 const { Title, Text } = Typography
 
@@ -14,9 +12,7 @@ const gridStyle = {
 const MembershipSettings = (props) => {
   const { onEdit, data } = props
 
-  const { t } = useTranslation()
-  const { locale } = React.useContext(LocaleContext)
-  const direction = languageDirection[locale] || 'ltr'
+  const { t, dir } = useLocalization()
 
   const subIsActive = (data.sub &&
     data.sub.pause_collection &&

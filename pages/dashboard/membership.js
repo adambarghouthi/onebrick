@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { compose } from 'redux'
 import Head from 'next/head'
@@ -6,11 +6,8 @@ import { PageHeader } from 'antd'
 import { DashboardLayout } from 'components/layouts'
 import MembershipSettings from 'components/MembershipSettings'
 import MembershipList from 'components/MembershipList'
-import { LocaleContext } from 'context/LocaleContext'
-import { languageDirection } from 'lib/translations/config'
-import useTranslation from 'lib/translations/useTranslation'
+import useLocalization from 'lib/localization/useLocalization'
 import handleMessage from 'lib/handleMessage'
-import withLocale from 'hocs/withLocale'
 import withAuth from 'hocs/withAuth'
 
 import {
@@ -30,9 +27,7 @@ const Membership = () => {
   const sub = useSelector(state => state.sub)
   const memList = useSelector(state => state.memList)
 
-  const { t } = useTranslation()
-  const { locale } = useContext(LocaleContext)
-  const direction = languageDirection[locale] || 'ltr'
+  const { t, dir } = useLocalization()
 
   // fetch subscription and memList after user is fetched
   useEffect(() => {

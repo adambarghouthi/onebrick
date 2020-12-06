@@ -1,6 +1,6 @@
 import React from 'react'
 import { Card, Form, Input, Button, Typography } from 'antd'
-import useTranslation from 'lib/translations/useTranslation'
+import useLocalization from 'lib/localization/useLocalization'
 
 const { Title } = Typography
 
@@ -14,7 +14,7 @@ const tailLayout = {
 }
 
 const ResetPasswordForm = (props) => {
-  const { t } = useTranslation()
+  const { t } = useLocalization()
 
   return (
     <Card>

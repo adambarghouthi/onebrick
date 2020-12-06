@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { compose } from 'redux'
 import Head from 'next/head'
@@ -7,11 +7,8 @@ import { DashboardLayout } from 'components/layouts'
 import { PaymentMethodForm } from 'components/forms'
 import BillingSummary from 'components/BillingSummary'
 import PaymentMethodList from 'components/PaymentMethodList'
-import { LocaleContext } from 'context/LocaleContext'
-import { languageDirection } from 'lib/translations/config'
-import useTranslation from 'lib/translations/useTranslation'
+import useLocalization from 'lib/localization/useLocalization'
 import handleMessage from 'lib/handleMessage'
-import withLocale from 'hocs/withLocale'
 import withAuth from 'hocs/withAuth'
 
 import { handleFetch as subFetch } from 'actions/subActions'
@@ -37,9 +34,7 @@ const Billing = () => {
   const pmForm = useSelector(state => state.pmForm)
 
   const [showModal, setShowModal] = useState(false)
-  const { t } = useTranslation()
-  const { locale } = useContext(LocaleContext)
-  const direction = languageDirection[locale] || 'ltr'
+  const { t, dir } = useLocalization()
 
   // fetch subscription and pmList after user is fetched
   useEffect(() => {

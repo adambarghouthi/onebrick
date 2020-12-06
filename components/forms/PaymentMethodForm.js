@@ -8,9 +8,9 @@ import {
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js'
+import { useRouter } from 'next/dist/client/router'
 import countries from 'lib/countries'
-import useTranslation from 'lib/translations/useTranslation'
-import { LocaleContext } from 'context/LocaleContext'
+import useLocalization from 'lib/localization/useLocalization'
 
 const { Title } = Typography
 
@@ -33,7 +33,7 @@ const Body = (props) => {
   const { loading, ...rest } = data
   const stripe = useStripe()
   const elements = useElements()
-  const { t } = useTranslation()
+  const { t } = useLocalization()
 
   const fields = Object.keys(rest).map(key => ({
     name: [key],
@@ -128,7 +128,7 @@ const Body = (props) => {
 }
 
 const PaymentMethodForm = (props) => {
-  const { locale } = React.useContext(LocaleContext)
+  const { locale } = useRouter()
 
   return (
     <Elements key={locale} locale={locale} stripe={stripePromise}>

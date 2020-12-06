@@ -1,13 +1,13 @@
 import React from 'react';
 import { Typography, Card, Descriptions, Tag, Statistic } from 'antd';
 import { CheckCircleTwoTone, CloseCircleTwoTone } from '@ant-design/icons'
-import useTranslation from 'lib/translations/useTranslation'
+import useLocalization from 'lib/localization/useLocalization'
 
 const { Title, Text } = Typography
 
 const BillingSummary = (props) => {
   const { billingMode, price, loading } = props
-  const { t } = useTranslation()
+  const { t } = useLocalization()
 
   return (
     <Card loading={loading}>

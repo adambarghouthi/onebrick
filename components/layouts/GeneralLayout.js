@@ -1,17 +1,15 @@
-import React from 'react'
-import { Layout, ConfigProvider } from 'antd'
-import Header from '../Header'
-import LocaleSwitch from '../LocaleSwitch'
-import { LocaleContext } from 'context/LocaleContext'
-import { languageDirection } from 'lib/translations/config'
+import React from 'react';
+import { Layout, ConfigProvider } from 'antd';
+import Header from '../Header';
+import LocaleSwitch from '../LocaleSwitch';
+import useLocalization from 'lib/localization/useLocalization';
 
 const GeneralLayout = (props) => {
   const { Footer, Content } = Layout;
-  const { locale } = React.useContext(LocaleContext)
-  const direction = languageDirection[locale] || 'ltr'
+  const { dir } = useLocalization();
 
   return (
-    <ConfigProvider direction={direction}>
+    <ConfigProvider direction={dir}>
       <Layout>
         <Header />
         <Content>
@@ -23,6 +21,6 @@ const GeneralLayout = (props) => {
       </Layout>
     </ConfigProvider>
   )
-}
+};
 
-export default GeneralLayout
+export default GeneralLayout;

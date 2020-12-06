@@ -1,11 +1,12 @@
 import React from 'react';
 import { Select } from 'antd';
 import { useRouter } from 'next/dist/client/router';
-import { locales, languageNames } from 'lib/translations/config';
+
+import { localeNames } from 'lib/localization/config';
 
 const LocaleSwitch = () => {
   const router = useRouter();
-  const { locale } = router;
+  const { locale, locales } = router;
 
   const handleChange = React.useCallback(
     (newLocale) => {
@@ -23,7 +24,7 @@ const LocaleSwitch = () => {
       {
         locales.map(locale => (
           <Select.Option key={locale} value={locale}>
-            { languageNames[locale] }
+            { localeNames[locale] }
           </Select.Option>
         ))
       }
