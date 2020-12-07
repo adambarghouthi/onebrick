@@ -3,21 +3,21 @@ import { useDispatch, useSelector } from 'react-redux'
 import { compose } from 'redux'
 import Head from 'next/head'
 import { PageHeader } from 'antd'
-import { DashboardLayout } from 'components/layouts'
-import MembershipSettings from 'components/MembershipSettings'
-import MembershipList from 'components/MembershipList'
-import useLocalization from 'lib/localization/useLocalization'
-import handleMessage from 'lib/handleMessage'
-import withAuth from 'hocs/withAuth'
+import { DashboardLayout } from 'src/components/layouts'
+import MembershipSettings from 'src/components/MembershipSettings'
+import MembershipList from 'src/components/MembershipList'
+import useLocalization from 'src/lib/localization/useLocalization'
+import handleMessage from 'src/lib/handleMessage'
+import withAuth from 'src/hocs/withAuth'
 
 import {
   handleFetch as subFetch,
   handleEdit as subOnEdit
-} from 'actions/subActions'
+} from 'src/actions/subActions'
 
 import {
   handleFetch as memListFetch
-} from 'actions/memListActions'
+} from 'src/actions/memListActions'
 
 const prodId = process.env.NEXT_PUBLIC_PROD_ID
 

@@ -2,21 +2,22 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { compose } from 'redux'
 import Head from 'next/head'
-import { DashboardLayout } from 'components/layouts'
-import { ChangePwdForm, ProfileForm } from 'components/forms'
-import useLocalization from 'lib/localization/useLocalization'
-import handleMessage from 'lib/handleMessage'
-import withAuth from 'hocs/withAuth'
+
+import { DashboardLayout } from 'src/components/layouts'
+import { ChangePwdForm, ProfileForm } from 'src/components/forms'
+import useLocalization from 'src/lib/localization/useLocalization'
+import handleMessage from 'src/lib/handleMessage'
+import withAuth from 'src/hocs/withAuth'
 
 import {
   handleChange as profileFormOnChange,
   handleSubmit as profileFormOnSubmit
-} from 'actions/profileFormActions'
+} from 'src/actions/profileFormActions'
 
 import {
   handleChange as changePwdFormOnChange,
   handleSubmit as changePwdFormOnSubmit
-} from 'actions/changePwdFormActions'
+} from 'src/actions/changePwdFormActions'
 
 const Profile = () => {
   const dispatch = useDispatch()
