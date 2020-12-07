@@ -17,7 +17,7 @@ import { GeneralLayout } from 'src/components/layouts'
 import { LoginForm } from 'src/components/forms'
 import useLocalization from 'src/lib/localization/useLocalization'
 import handleMessage from 'src/lib/handleMessage'
-import withNonAuth from 'hocs/withNonAuth'
+import withNonAuth from 'src/hocs/withNonAuth'
 
 import {
   handleChange,
