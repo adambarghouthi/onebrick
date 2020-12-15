@@ -1,5 +1,5 @@
-import React from 'react'
-import Head from 'next/head'
+import React from 'react';
+import Head from 'next/head';
 import {
   Typography,
   Layout,
@@ -8,19 +8,19 @@ import {
   Button,
   Card,
   Space
-} from 'antd'
+} from 'antd';
 import {
   ArrowRightOutlined,
   ArrowLeftOutlined,
   DownOutlined,
   CheckCircleOutlined
-} from '@ant-design/icons'
+} from '@ant-design/icons';
 import { useRouter } from 'next/dist/client/router';
-import { GeneralLayout } from 'src/components/layouts'
-import useLocalization from 'src/lib/localization/useLocalization'
-import withNonAuth from 'src/hocs/withNonAuth'
+import { GeneralLayout } from 'src/components/layouts';
+import useLocalization from 'src/lib/localization/useLocalization';
+import withNonAuth from 'src/hocs/withNonAuth';
 
-const { Title, Text } = Typography
+const { Title, Text } = Typography;
 
 const Index = () => {
   const { t, dir } = useLocalization();
@@ -72,7 +72,7 @@ const Index = () => {
                 justifyContent: 'center',
               }}
             >
-              <Button size="large">
+              <Button size="large" href="/signup">
                 { t('support_fund') }
                 <span>
                   &nbsp;&nbsp;&nbsp;&nbsp;
@@ -119,9 +119,7 @@ const Index = () => {
             </Row>
             <Row>
               <Col span={24}>
-                <Button
-                  size="large"
-                >
+                <Button size="large" href="/signup">
                   { t('support_fund') }
                   <span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -159,9 +157,7 @@ const Index = () => {
                     </p>
                   </Space>
                 </div>
-                <Button
-                  size="large"
-                >
+                <Button size="large" href="/signup">
                   { t('support_fund') }
                   <span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -205,6 +201,6 @@ const Index = () => {
       </GeneralLayout>
     </>
   )
-}
+};
 
-export default withNonAuth(Index)
+export default withNonAuth(Index);
