@@ -1,8 +1,9 @@
 import React from 'react'
 import { Card, Form, Input, Button, Typography } from 'antd'
+import Link from 'next/link'
 import useLocalization from 'src/lib/localization/useLocalization'
 
-const { Title } = Typography
+const { Title, Text } = Typography
 
 const layout = {
   labelCol: { span: 6 },
@@ -75,6 +76,19 @@ const LoginForm = (props) => {
             </Button>
           </Form.Item>
         </Form>
+      </Card.Grid>
+      <Card.Grid hoverable={false} style={{ width: '100%' }}>
+        <Card.Meta
+          description={
+            <>
+              { t('no_account_yet') }
+              &nbsp;
+              <Link href="/signup">
+                <a>{ t('signup') }</a>
+              </Link>
+            </>
+          }
+        />
       </Card.Grid>
     </Card>
   )

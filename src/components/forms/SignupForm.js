@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react'
 import { message, Card, Form, Input, Button, Typography } from 'antd'
+import Link from 'next/link'
+
 import useLocalization from 'src/lib/localization/useLocalization'
 import validateEmail from 'lib/validateEmail'
 
-const { Title } = Typography
+const { Title, Text } = Typography
 
 const layout = {
   labelCol: { span: 6 },
@@ -118,6 +120,19 @@ const SignupForm = (props) => {
             </Button>
           </Form.Item>
         </Form>
+      </Card.Grid>
+      <Card.Grid hoverable={false} style={{ width: '100%' }}>
+        <Card.Meta
+          description={
+            <>
+              { t('owns_an_account') }
+              &nbsp;
+              <Link href="/login">
+                <a>{ t('login') }</a>
+              </Link>
+            </>
+          }
+        />
       </Card.Grid>
     </Card>
   )

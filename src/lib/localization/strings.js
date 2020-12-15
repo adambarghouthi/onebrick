@@ -61,6 +61,8 @@ const strings = {
     email_invalid_error: 'Please use a valid email address.',
     password_match_error: 'The two passwords do not match.',
     password_length_error: 'Your password must be 8 characters or more.',
+    no_account_yet: 'Don\'t have an account yet?',
+    owns_an_account: 'Already have an account?',
 
     // MembershipList
     psf_membership: 'Palestinian Social Fund Membership',
@@ -198,6 +200,8 @@ const strings = {
     email_invalid_error: 'الرجاء استخدام بريد إلكتروني صالح.',
     password_match_error: 'الكلمتان السريتان لا يتطابقان.',
     password_length_error: 'يجب أن تتكون كلمة السر من 8 أحرف أو أكثر.',
+    no_account_yet: 'لا تملك حسابا بعد؟',
+    owns_an_account: 'هل تملك حسابا من قبل؟',
 
     // MembershipList
     psf_membership: 'عضوية الصندوق الاجتماعي الفلسطيني',
