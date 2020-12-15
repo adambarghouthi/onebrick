@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { compose } from 'redux'
 import Head from 'next/head'
 import { PageHeader } from 'antd'
 import { DashboardLayout } from 'src/components/layouts'
@@ -80,4 +79,4 @@ const Membership = () => {
   )
 }
 
-export default compose(withLocale, withAuth)(Membership)
+export default withAuth(Membership)

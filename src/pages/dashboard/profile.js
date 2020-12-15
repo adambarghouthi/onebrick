@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { compose } from 'redux'
 import Head from 'next/head'
 
 import { DashboardLayout } from 'src/components/layouts'
@@ -69,4 +68,4 @@ const Profile = () => {
   )
 }
 
-export default compose(withLocale, withAuth)(Profile)
+export default withAuth(Profile)

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { compose } from 'redux'
 import Head from 'next/head'
 import { Skeleton, Typography, Modal } from 'antd'
 import { DashboardLayout } from 'src/components/layouts'
@@ -116,4 +115,4 @@ const Billing = () => {
   )
 }
 
-export default compose(withLocale, withAuth)(Billing)
+export default withAuth(Billing)
