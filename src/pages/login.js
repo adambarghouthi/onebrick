@@ -37,7 +37,7 @@ const Login = () => {
   return (
     <div>
       <Head>
-        <title>{t('login_title')}</title>
+        <title>{t('login_hd_title')}</title>
       </Head>
       <GeneralLayout>
         <Layout className="container">
