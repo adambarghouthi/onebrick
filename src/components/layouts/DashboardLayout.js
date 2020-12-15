@@ -24,7 +24,7 @@ const DashboardLayout = (props) => {
   }
 
   return (
-    <ConfigProvider direction={direction}>
+    <ConfigProvider direction={dir}>
       <Layout>
         <Navbar />
         <Layout className="container">
@@ -36,28 +36,28 @@ const DashboardLayout = (props) => {
                 <Menu.Item
                   key="profile"
                   icon={<ProfileOutlined />}>
-                  <Link href="/[lang]/dashboard/profile" as={`/${locale}/dashboard/profile`}>
+                  <Link href="/dashboard/profile">
                     <a>{ t('profile_pg_title') }</a>
                   </Link>
                 </Menu.Item>
                 <Menu.Item
                   key="billing"
                   icon={<CreditCardOutlined />}>
-                  <Link href="/[lang]/dashboard/billing" as={`/${locale}/dashboard/billing`}>
+                  <Link href="/dashboard/billing">
                     <a>{ t('billing_pg_title') }</a>
                   </Link>
                 </Menu.Item>
                 <Menu.Item
                   key="membership"
                   icon={<SettingOutlined />}>
-                  <Link href="/[lang]/dashboard/membership" as={`/${locale}/dashboard/membership`}>
+                  <Link href="/dashboard/membership">
                     <a>{ t('membership_pg_title') }</a>
                   </Link>
                 </Menu.Item>
               </Menu>
             </Col>
             <Col xs={24} sm={18}>
-              <Content className={direction === 'ltr'
+              <Content className={dir === 'ltr'
                 ? 'ml-3'
                 : 'mr-3'
               }>
