@@ -67,7 +67,7 @@ const DashboardLayout = (props) => {
           </Row>
         </Layout>
         <Footer style={{ textAlign: 'center' }}>
-          Palestinian Social Fund
+          One Brick
         </Footer>
       </Layout>
     </ConfigProvider>

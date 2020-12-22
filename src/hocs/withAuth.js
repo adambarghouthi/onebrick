@@ -24,10 +24,10 @@ const wrapper = (WrappedPage) => {
          if (!user.auth) {
            dispatch(handleFetch(token))
          } else if (!user.stripe.customerId) {
-           router.push('/[lang]/signup', `/${locale}/signup`)
+           router.push('/signup')
          }
        } else {
-         router.push('/[lang]/login', `/${locale}/login`)
+         router.push('/login')
        }
     }, [user.auth])
 

@@ -28,7 +28,7 @@ const PaymentMethodList = (props) => {
     data
   } = props
 
-  const { t } = useLocalization()
+  const { t, dir } = useLocalization()
   const [modal, contextHolder] = Modal.useModal()
 
   const confirmRemove = (pmId) => {
@@ -93,7 +93,7 @@ const PaymentMethodList = (props) => {
             actions={[
               <Dropdown
                 overlay={overlay(pm.id, pm.id === defaultPm)}
-                placement={direction === 'ltr'
+                placement={dir === 'ltr'
                   ? 'bottomRight'
                   : 'bottomLeft'
                 }

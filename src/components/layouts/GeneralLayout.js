@@ -15,7 +15,7 @@ const GeneralLayout = (props) => {
           { props.children }
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          Palestinian Social Fund
+          One Brick
         </Footer>
       </Layout>
     </ConfigProvider>

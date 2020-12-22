@@ -64,7 +64,7 @@ const MembershipSettings = (props) => {
                     type="primary"
                     size="large"
                     style={{
-                      float: direction === 'ltr'
+                      float: dir === 'ltr'
                         ? 'right'
                         : 'left'
                     }}

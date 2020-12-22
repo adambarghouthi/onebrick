@@ -1,28 +1,29 @@
 const strings = {
   en: {
     // Head page titles
-    home_hd_title: 'Palestinian Social Fund',
-    login_hd_title: 'Log In - PSF',
-    signup_hd_title: 'Sign Up - PSF',
-    billing_hd_title: 'Billing - PSF',
-    membership_hd_title: 'Membership - PSF',
-    profile_hd_title: 'Profile - PSF',
+    home_hd_title: 'One Brick',
+    login_hd_title: 'Log In - One Brick',
+    signup_hd_title: 'Sign Up - One Brick',
+    billing_hd_title: 'Billing - One Brick',
+    membership_hd_title: 'Membership - One Brick',
+    profile_hd_title: 'Profile - One Brick',
 
     // Home page
-    splash_title: 'Together, forward',
-    splash_text: 'Freedom is not to be requested, it is to be realized.',
+    splash_title: 'One Brick',
+    splash_text: 'Rebuilding the poorest homes in Lebanon, one brick at a time.',
     scroll: 'Scroll to learn more',
-    green_title: 'Power in our number',
-    green_text: 'The PSF is crowdsourced and dedicated to building a network of cooperatives to bring the power of production back to the people.',
-    red_title_1: 'Self-sufficiency',
-    red_text_1: 'Independent villages through decentralized production.',
-    red_title_2: 'Cooperativism',
-    red_text_2: 'Equal representation to maintain a flat structure.',
-    red_title_3: 'Transparency',
-    red_text_3: 'Open source fund activity to lead honest development.',
-    black_title: 'Start today',
-    black_text: 'Help revitalize Palestinian production.',
-    support_fund: 'Support Fund',
+    story_title: 'Our Story',
+    story_text: 'We are three partners who met  while working on a squalor in south east Beirut. We decided to open this organisation to tackle the needy homes in Lebanon.',
+    values_title_1: 'Trust',
+    values_text_1: 'Your trust is our lifeline. We aim to ensure that every donor is 100% satisfied with our work.',
+    values_title_2: 'Transparency',
+    values_text_2: 'Knowing the dilemma that donors face when donating to causes in Lebanon due to lack of trust, we aim to offer transparency in all activities we engage in.',
+    values_title_3: 'Clarity',
+    values_text_3: 'What is the use of transparency if clarity is missing? Clear and concise structure will support our drive for transparency.',
+    projects_title: 'Our Projects',
+    start_title: 'Start Today',
+    start_text: 'Help rebuild forgotten homes.',
+    learn_more: 'Lean More',
 
     // Dashboard page titles
     profile_pg_title: 'Profile',
@@ -65,8 +66,8 @@ const strings = {
     owns_an_account: 'Already have an account?',
 
     // MembershipList
-    psf_membership: 'Palestinian Social Fund Membership',
-    psf_membership_meta: 'Choose to support the PSF either monthly or annually.',
+    psf_membership: 'One Brick Membership',
+    psf_membership_meta: 'Choose to support One Brick either monthly or annually.',
     cancel_or_edit: 'Cancel or edit anytime',
     view_activity: 'View fund activity',
     receive_updates: 'Receive fund updates',
@@ -132,7 +133,7 @@ const strings = {
     save: 'Save',
     back: 'Back',
     thank_you: 'Thank you very much for your support',
-    welcome: 'Welcome to the PSF. We are building the freedom of tomorrow and you are now a crucial part of the journey.',
+    welcome: 'Welcome to One Brick. We are building the freedom of tomorrow and you are now a crucial part of the journey.',
     view_dashboard: 'View Dashboard',
     no_data: 'No data',
     yes: 'Yes',
@@ -161,7 +162,6 @@ const strings = {
     red_text_3: 'نشاط صندوق مفتوح المصدر لقيادة تنمية مخلصة.',
     black_title: 'دعم الآن',
     black_text: 'ساعد في تنشيط الإنتاج الفلسطيني.',
-    support_fund: 'دعم الصندوق',
 
     // Dashboard page titles
     profile_pg_title: 'الملف الشخصي',

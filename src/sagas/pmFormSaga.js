@@ -32,7 +32,7 @@ async function createCardToken(params) {
 }
 
 async function createPaymentMethod(params) {
-  const url = '/api/payment-methods'
+  const url = '/api/stripe/payment-methods'
   const { token, customerId, cardToken } = params
 
   try {
@@ -110,6 +110,8 @@ function* pmFormSubscribe(action) {
     const subData = subRes.data
     if (subData.status === 'error') throw subData
 
+    console.log(cusData)
+    console.log(subData)
     cus = cusData.data
     sub = subData.data
 

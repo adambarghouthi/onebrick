@@ -7,7 +7,10 @@ import {
   Col,
   Button,
   Card,
-  Space
+  Space,
+  List,
+  Progress,
+  Descriptions,
 } from 'antd';
 import {
   ArrowRightOutlined,
@@ -18,9 +21,35 @@ import {
 import { useRouter } from 'next/dist/client/router';
 import { GeneralLayout } from 'src/components/layouts';
 import useLocalization from 'src/lib/localization/useLocalization';
-import withNonAuth from 'src/hocs/withNonAuth';
 
 const { Title, Text } = Typography;
+
+const listData = [
+  {
+    title: `Help Dany Rebuild his Life`,
+    img: '/assets/dany.jpg',
+    description:
+      'We want to raise funds for Dany to rebuild his home and set his life back on track following the tragic blast of Beirut on the 4th of August.',
+    data: {
+      area: 'Rmeil Beirut',
+      cost: '$2685',
+      status: 'completed',
+      progress: 100,
+    },
+  },
+  {
+    title: `Next project`,
+    img: '/assets/dany.png',
+    description:
+      'TBD',
+    data: {
+      area: 'TBD',
+      cost: 'TBD',
+      status: 'In Progress',
+      progress: 0,
+    },
+  }
+];
 
 const Index = () => {
   const { t, dir } = useLocalization();
@@ -32,95 +61,37 @@ const Index = () => {
         <title>{t('home_hd_title')}</title>
       </Head>
       <GeneralLayout>
-        <div className="flex-section">
+        <div className="flex-section banner">
+          <div className="shade" />
           <Layout className="container">
-            <div className="text-center mb-4">
-              <img src="/assets/psf-logo.png" height="150" width="123" />
-            </div>
-            <Title className="text-center" level={1}>
+            <Title className="text-light text-center" level={1}>
               { t('splash_title') }
             </Title>
-            <p className="text-center">
+            <Title className="text-light text-center" level={2}>
               { t('splash_text') }
-            </p>
-            <br />
-            <div className="text-center">
-              <Text type="secondary">
-                { t('scroll') }
-              </Text>
-              <br />
-              <Text type="secondary">
-                <DownOutlined />
-              </Text>
-            </div>
-          </Layout>
-        </div>
-        <div className="flex-section green">
-          <Layout className="container">
-            <Title
-              level={1}
-              className="text-light text-center"
-            >
-              { t('green_title') }
             </Title>
-            <p className="text-light text-center mb-5">
-              { t('green_text') }
-            </p>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-              }}
-            >
-              <Button size="large" href="/signup">
-                { t('support_fund') }
-                <span>
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                </span>
-                {
-                  dir === 'ltr'
-                    ? <ArrowRightOutlined />
-                    : <ArrowLeftOutlined />
-                }
-              </Button>
-            </div>
           </Layout>
         </div>
-        <div className="flex-section red">
+        <div className="flex-section story">
+          <div className="shade" />
           <Layout className="container">
             <Row gutter={[30, 60]}>
-              <Col md={24} lg={8}>
-                <img src="/assets/self-sufficiency.png" className="mb-5" />
-                <Title className="text-light" level={4}>
-                  { t('red_title_1') }
+              <Col md={24} lg={10}>
+                <Title
+                  level={1}
+                  className="text-light"
+                >
+                  { t('story_title') }
                 </Title>
-                <p className="text-light mb-0">
-                  { t('red_text_1') }
-                </p>
-              </Col>
-              <Col md={24} lg={8}>
-                <img src="/assets/cooperativism.png" className="mb-5" />
                 <Title className="text-light" level={4}>
-                  { t('red_title_2') }
+                  { t('story_text') }
                 </Title>
-                <p className="text-light mb-0">
-                  { t('red_text_2') }
-                </p>
-              </Col>
-              <Col md={24} lg={8}>
-                <img src="/assets/transparency.png" className="mb-5" />
-                <Title className="text-light" level={4}>
-                  { t('red_title_3') }
-                </Title>
-                <p className="text-light mb-0">
-                  { t('red_text_3') }
-                </p>
               </Col>
             </Row>
             <Row>
               <Col span={24}>
-                <Button size="large" href="/signup">
-                  { t('support_fund') }
+                <Button size="large" href="/about-us">
+                  { t('learn_more') }
                   <span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                   </span>
@@ -134,15 +105,96 @@ const Index = () => {
             </Row>
           </Layout>
         </div>
-        <div className="flex-section black">
+        <div className="flex-section values">
+          <div className="shade" />
+          <Layout className="container">
+            <Row gutter={[30]}>
+              <Col md={24} lg={8}>
+                <img src="/assets/self-sufficiency.png" className="mb-5" />
+                <Title className="text-light" level={3}>
+                  { t('values_title_1') }
+                </Title>
+                <Title className="text-light mb-0" level={5}>
+                  { t('values_text_1') }
+                </Title>
+              </Col>
+              <Col md={24} lg={8}>
+                <img src="/assets/cooperativism.png" className="mb-5" />
+                <Title className="text-light" level={3}>
+                  { t('values_title_2') }
+                </Title>
+                <Title className="text-light mb-0" level={5}>
+                  { t('values_text_2') }
+                </Title>
+              </Col>
+              <Col md={24} lg={8}>
+                <img src="/assets/transparency.png" className="mb-5" />
+                <Title className="text-light" level={3}>
+                  { t('values_title_3') }
+                </Title>
+                <Title className="text-light mb-0" level={5}>
+                  { t('values_text_3') }
+                </Title>
+              </Col>
+            </Row>
+          </Layout>
+        </div>
+        <div className="flex-section projects">
+          <div className="shade" />
+          <Layout className="container">
+            <Row align="middle" gutter={[30, 60]}>
+              <Col md={24}>
+                <Title className="text-light text-center" level={1}>
+                  { t('projects_title') }
+                </Title>
+              </Col>
+            </Row>
+            <Row align="middle" gutter={[30, 60]}>
+              <List
+                style={{ backgroundColor: 'white' }}
+                itemLayout="vertical"
+                size="large"
+                dataSource={listData}
+                renderItem={item => (
+                  <List.Item
+                    key={item.title}
+                    extra={
+                      <img
+                        width={272}
+                        alt="logo"
+                        src={item.img}
+                      />
+                    }
+                  >
+                    <>
+                      <List.Item.Meta
+                        title={item.title}
+                        description={item.description}
+                      />
+                      <div className="mb-4">
+                        <Descriptions>
+                          <Descriptions.Item label="Area">{item.data.area}</Descriptions.Item>
+                          <Descriptions.Item label="Total Cost">{item.data.cost}</Descriptions.Item>
+                          <Descriptions.Item label="Status">{item.data.status}</Descriptions.Item>
+                        </Descriptions>
+                      </div>
+                      <Progress strokeColor="#1eb320" percent={item.data.progress} status="active" />
+                    </>
+                  </List.Item>
+                )}
+              />
+            </Row>
+          </Layout>
+        </div>
+        <div className="flex-section donations">
           <Layout className="container">
             <Row align="middle" gutter={[30, 60]}>
               <Col md={24} lg={10}>
                 <Title className="text-light" level={1}>
-                  { t('black_title') }
+                  { t('start_title') }
                 </Title>
                 <p className="text-light">
-                  { t('black_text') }
+                  { t('start_text') }
                 </p>
                 <div className="mt-5 mb-5">
                   <Space direction="vertical">
@@ -158,7 +210,7 @@ const Index = () => {
                   </Space>
                 </div>
                 <Button size="large" href="/signup">
-                  { t('support_fund') }
+                  { t('support_now') }
                   <span>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                   </span>
@@ -198,9 +250,41 @@ const Index = () => {
             </Row>
           </Layout>
         </div>
+        <div>
+          <Layout className="container">
+            <Row align="middle" gutter={[30, 60]}>
+              <Col md={24}>
+                <Title level={2}>
+                  Contact Us
+                </Title>
+                <div className="mb-5">
+                  <p>
+                    There will have to be a contact
+                    us part at the end of the home
+                    page with our contact info.
+                    Something basic, I didn’t think
+                    there was a need to detail the
+                    layout and background for this one.
+                  </p>
+                </div>
+                <Button size="large" href="/signup">
+                  Contact
+                  <span>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                  </span>
+                  {
+                    dir === 'ltr'
+                      ? <ArrowRightOutlined />
+                      : <ArrowLeftOutlined />
+                  }
+                </Button>
+              </Col>
+            </Row>
+          </Layout>
+        </div>
       </GeneralLayout>
     </>
   )
 };
 
-export default withNonAuth(Index);
+export default Index;

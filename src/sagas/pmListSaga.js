@@ -41,7 +41,7 @@ function* pmListFetch(action) {
 
 function* pmListMakeDefault(action) {
   const { pmId, subId } = action
-  const url = '/api/payment-methods/make-default'
+  const url = '/api/stripe/payment-methods/make-default'
 
   let token
 
@@ -66,7 +66,7 @@ function* pmListMakeDefault(action) {
 
 function* pmListRemove(action) {
   const { pmId } = action
-  const url = '/api/payment-methods'
+  const url = '/api/stripe/payment-methods'
 
   let token
 

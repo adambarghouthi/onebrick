@@ -39,7 +39,7 @@ function* subFetch(action) {
 function* subEdit(action) {
   const { params } = action
   const { subId, ...rest } = params
-  const url = '/api/subscriptions'
+  const url = '/api/stripe/subscriptions'
 
   let token
 

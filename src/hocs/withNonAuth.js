@@ -25,13 +25,13 @@ const wrapper = (WrappedPage) => {
           dispatch(handleFetch(token))
         } else if (router.pathname.includes('/login')) {
           if (!user.stripe.customerId) {
-            router.push('/[lang]/signup', `/${locale}/signup`)
+            router.push('/signup')
           } else {
-            router.push('/[lang]/dashboard/profile', `/${locale}/dashboard/profile`)
+            router.push('/dashboard/profile')
           }
         } else if (router.pathname.includes('/signup')) {
           if (user.stripe.customerId) {
-            router.push('/[lang]/dashboard/profile', `/${locale}/dashboard/profile`)
+            router.push('/dashboard/profile')
           }
         }
       }
